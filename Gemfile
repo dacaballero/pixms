@@ -1,12 +1,23 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
+gem 'devise'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'libv8', '3.11.8.0'
 
+gem "rails-backbone"
+
+group :development, :test do
+  	gem 'sqlite3'
+  	gem 'rspec-rails'
+	gem 'capybara', '1.1.2'
+	gem 'database_cleaner'
+	gem 'jasmine'
+	gem 'factory_girl_rails'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
