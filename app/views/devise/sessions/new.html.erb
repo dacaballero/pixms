@@ -1,0 +1,110 @@
+<!-- BEGIN LOGIN FORM -->
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <h3 class="form-title">Ingresa con tu Cuenta</h3>
+  <div class="control-group">
+    <div class="controls">
+      <div class="input-icon left">
+        <i class="icon-user"></i>
+        <%= f.email_field :email, :autofocus => true, :placeholder => 'Username', :class=> 'm-wrap' %>
+      </div>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <div class="input-icon left">
+        <i class="icon-lock"></i>
+        <%= f.password_field :password, :placeholder=>'Password', :class=>'m-wrap' %>
+      </div>
+    </div>
+  </div>
+  <div class="form-actions">
+  	<% if devise_mapping.rememberable? -%>
+  		<label class="checkbox">
+  		<%= f.check_box :remember_me %> <%= f.label :remember_me, :style=>"display:inline" %>
+  	</label>
+	<% end -%>
+    
+    <%= f.submit('Ingresar', :class=>"btn green pull-right") %>
+              
+  </div>
+  <div class="forget-password">
+    <h4>Olvidaste tu Contraseña ?</h4>
+    <p>
+      <%= render "devise/shared/links" %>
+    </p>
+  </div>
+  <div class="create-account">
+    <!--p>
+      Don't have an account yet ?&nbsp; 
+      <a href="javascript:;" id="register-btn" class="">Create an account</a>
+    </p -->
+  </div>
+<% end %>
+<!-- END LOGIN FORM -->        
+<!-- BEGIN FORGOT PASSWORD FORM -->
+<form class="form-vertical forget-form" action="index.html">
+  <h3 class="">Forget Password ?</h3>
+  <p>Enter your e-mail address below to reset your password.</p>
+  <div class="control-group">
+    <div class="controls">
+      <div class="input-icon left">
+        <i class="icon-envelope"></i>
+        <input class="m-wrap" type="text" placeholder="Email" />
+      </div>
+    </div>
+  </div>
+  <div class="form-actions">
+    <a href="javascript:;" id="back-btn" class="btn">
+    <i class="m-icon-swapleft"></i> Back
+    </a>
+    <a href="javascript:;" id="forget-btn" class="btn green pull-right">
+    Submit <i class="m-icon-swapright m-icon-white"></i>
+    </a>            
+  </div>
+</form>
+<!-- END FORGOT PASSWORD FORM -->
+<!-- BEGIN REGISTRATION FORM -->
+<form class="form-vertical register-form" action="index.html">
+  <h3 class="">Sign Up</h3>
+  <p>Enter your account details below:</p>
+  <div class="control-group">
+    <div class="controls">
+      <div class="input-icon left">
+        <i class="icon-user"></i>
+        <input class="m-wrap" type="text" placeholder="Username" />
+      </div>
+    </div>
+    <div class="controls">
+      <div class="input-icon left">
+        <i class="icon-lock"></i>
+        <input class="m-wrap" type="password" placeholder="Password" />
+      </div>
+    </div>
+    <div class="controls">
+      <div class="input-icon left">
+        <i class="icon-ok"></i>
+        <input class="m-wrap" type="password" placeholder="Re-type Your Password" />
+      </div>
+    </div>
+    <div class="controls">
+      <div class="input-icon left">
+        <i class="icon-envelope"></i>
+        <input class="m-wrap" type="text" placeholder="Email" />
+      </div>
+    </div>
+    <div class="controls">
+      <label class="checkbox">
+      <input type="checkbox" /> I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+      </label>  
+    </div>
+  </div>
+  <div class="form-actions">
+    <a href="javascript:;" id="register-back-btn" class="btn">
+    <i class="m-icon-swapleft"></i>  Back
+    </a>
+    <a href="index.html" id="register-submit-btn" class="btn green pull-right">
+    Sign Up <i class="m-icon-swapright m-icon-white"></i>
+    </a>            
+  </div>
+</form>
+<!-- END REGISTRATION FORM -->

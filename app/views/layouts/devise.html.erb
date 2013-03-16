@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pixms</title>
+	<meta charset="utf-8" />
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	<link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/assets/css/metro.css" rel="stylesheet" />
+	<link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+	<link href="/assets/css/style.css" rel="stylesheet" />
+	<link href="/assets/css/style_responsive.css" rel="stylesheet" />
+	<link href="/assets/css/style_default.css" rel="stylesheet" id="style_color" />
+	<link rel="stylesheet" type="text/css" href="/assets/uniform/css/uniform.default.css" />
+	<link rel="shortcut icon" href="favicon.ico" />
+  	<%= stylesheet_link_tag    "application", :media => "all" %>
+  	<%= javascript_include_tag "application" %>
+  	<%= csrf_meta_tags %>
+</head>
+<body>
+	<div style="width: 100%; heigth: 100%" class="login">
+	    <!-- BEGIN LOGO -->
+	    <div class="logo">
+	      <img src="/assets/logo_ws.png" alt="" /> 
+	    </div>
+	    <!-- END LOGO -->
+	    <!-- BEGIN LOGIN -->
+	    <div class="content">
+			<%= yield() %>
+		</div>
+    	<div class="copyright">
+      		2013 &copy; pixelab_digital.
+    	</div>
+    <!-- END JAVASCRIPTS -->
+	</div>
+</body>
+</html>

@@ -9,10 +9,12 @@ gem 'devise'
 gem 'libv8', '3.11.8.0'
 
 gem "rails-backbone"
+gem 'rb-readline'
+gem "simple-navigation"
 
 group :development, :test do
-  	gem 'sqlite3'
-  	gem 'rspec-rails'
+  gem 'sqlite3'
+  gem 'rspec-rails'
 	gem 'capybara', '1.1.2'
 	gem 'database_cleaner'
 	gem 'jasmine'
