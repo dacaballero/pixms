@@ -11,7 +11,42 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130312052046) do
+ActiveRecord::Schema.define(:version => 20130320013726) do
+
+  create_table "clients", :force => true do |t|
+    t.string   "name"
+    t.string   "logo"
+    t.string   "phone_number"
+    t.text     "address"
+    t.string   "email"
+    t.string   "webpage"
+    t.string   "status"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.text     "welcome_text"
+  end
+
+  create_table "user_profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.date     "birthdate"
+    t.string   "country"
+    t.text     "address"
+    t.string   "phone"
+    t.string   "cellphone"
+    t.integer  "client_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -26,6 +61,9 @@ ActiveRecord::Schema.define(:version => 20130312052046) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "name"
+    t.string   "last_name"
+    t.date     "birthdate"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

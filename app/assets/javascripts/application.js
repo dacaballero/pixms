@@ -13,3 +13,22 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+function initListTable(table){
+	var oTable = table.dataTable({
+		"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+        "sPaginationType": "bootstrap",
+        "oLanguage": {
+            "sLengthMenu": "_MENU_ per page",
+            "oPaginate": {
+                "sPrevious": "Prev",
+                "sNext": "Next"
+            }
+        },
+        "aoColumnDefs": [{
+            'bSortable': false,
+            'aTargets': [0]
+        }]
+	});
+
+}

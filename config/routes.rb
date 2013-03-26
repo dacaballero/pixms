@@ -1,7 +1,16 @@
 Pixms::Application.routes.draw do
+  resources :user_profiles
+
+  get "dashboard/show"
+
+  resources :clients
+
   devise_for :users
 
   root :to => 'static_pages#home'
+
+  match ':controller/:action/:user_id'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -59,4 +68,5 @@ Pixms::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+
 end

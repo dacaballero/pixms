@@ -1,0 +1,73 @@
+<%= form_for(@client, :html => { :class => "form-horizontal"}) do |f| %>
+  <% if @client.errors.any? %>
+    <div id="alert" class="alert alert-error alert-block fade in">
+      <h4 class="alert-heading"><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h4>
+
+      <ul>
+      <% @client.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :logo, :class=>"control-label" %>
+    <div class="controls">
+       <div class="fileupload fileupload-new" data-provides="fileupload">
+          <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+             <img src="<%= !@client.avatar.file? ? "http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" : @client.avatar.url(:medium)%>" alt="" />
+          </div>
+          <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+          <div>
+             <span class="btn btn-file"><span class="fileupload-new">Select image</span>
+             <span class="fileupload-exists">Change</span>
+                <%= f.file_field :avatar, :class => 'default' %>
+              </span>
+             <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+          </div>
+       </div>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label :name, :class=>"control-label" %>
+    <div class="controls">
+      <%= f.text_field :name, :class=>"m-wrap medium", :placeholder=>"Client Name" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :phone_number, :class=>"control-label" %>
+    <div class="controls">
+      <%= f.text_field :phone_number, :class=>"m-wrap small", :placeholder=>"Phone Number" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :address, :class=>"control-label" %>
+    <div class="controls">
+      <%= f.text_area :address, :class=>"span6 m-wrap", :placeholder=>"Address", :rows => 4 %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :email, :class=>"control-label" %>
+    <div class="controls">
+      <%= f.text_field :email, :class=>"m-wrap medium", :placeholder=>"Main Email" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :webpage, :class=>"control-label" %>
+    <div class="controls">
+      <%= f.text_field :webpage, :class=>"m-wrap medium", :placeholder=>"Web Page" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :welcome_text, :class=>"control-label" %>
+    <div class="controls">
+      <%= f.text_area :welcome_text, :class=>"span12 ckeditor m-wrap", :rows=>6 %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.button :type=>"submit", :class=>"btn green" %>
+    <%= link_to 'Back', clients_path, :class=>"btn" %>
+  </div>
+<% end %>

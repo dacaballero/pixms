@@ -11,6 +11,9 @@ gem 'libv8', '3.11.8.0'
 gem "rails-backbone"
 gem 'rb-readline'
 gem "simple-navigation"
+gem "paperclip", "~> 3.0"
+gem "cocaine", "=0.3.2"
+gem 'carmen-rails', '~> 1.0.0.beta3'
 
 group :development, :test do
   gem 'sqlite3'
@@ -19,6 +22,7 @@ group :development, :test do
 	gem 'database_cleaner'
 	gem 'jasmine'
 	gem 'factory_girl_rails'
+  gem 'guard-rspec'
 end
 
 # Gems used only for assets and not required
