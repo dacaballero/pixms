@@ -1,0 +1,47 @@
+<% title "Contact Categories" %>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var oTable = $("#list_table").dataTable({
+            "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+            "sPaginationType": "bootstrap",
+            "oLanguage": {
+                "sLengthMenu": "_MENU_ per page",
+                "oPaginate": {
+                    "sPrevious": "Prev",
+                    "sNext": "Next"
+                }
+            },
+            "aoColumnDefs": [{
+                'bSortable': false,
+                'aTargets': [0]
+            }]
+        });
+
+        $('#list_table_wrapper .dataTables_filter input').addClass("m-wrap medium"); // modify table search input
+        $('#list_table_wrapper .dataTables_length select').addClass("m-wrap xsmall"); // modify table per page dropdown
+    });
+</script>
+
+<div class="portlet-body">
+    <div class="clearfix">
+        <div class="btn-group">
+            <%= link_to 'New Contact category', new_contact_category_path, :class=> 'btn green' %>
+        </div>
+    </div>
+
+    <table class="table table-striped table-hover table-bordered" id="list_table">
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th></th>
+      </tr>
+
+    <% @contact_categories.each do |contact_category| %>
+      <tr>
+        <td><%= contact_category.name %></td>
+        <td><%= link_to 'Edit', edit_contact_category_path(contact_category) %></td>
+        <td><%= link_to 'Destroy', contact_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </table>
+</div>

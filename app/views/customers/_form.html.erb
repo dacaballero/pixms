@@ -1,0 +1,100 @@
+<%= nested_form_for(@customer) do |f| %>
+  <% if @customer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+      <ul>
+      <% @customer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :avatar, :class=>"control-label" %>
+    <div class="controls">
+       <div class="fileupload fileupload-new" data-provides="fileupload">
+          <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+             <img src="<%= !@customer.avatar.file? ? "http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" : @customer.avatar.url(:medium)%>" alt="" />
+          </div>
+          <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+          <div>
+             <span class="btn btn-file"><span class="fileupload-new">Select image</span>
+             <span class="fileupload-exists">Change</span>
+                <%= f.file_field :avatar, :class => 'default' %>
+              </span>
+             <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+          </div>
+       </div>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :name, :class=>"control-label" %>
+    <div class="controls">
+      <%= f.text_field :name, :class=>"m-wrap medium", :placeholder=>"Customer Name" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :code, :class=>"control-label" %>
+    <div class="controls">
+      <%= f.text_field :code, :class=>"m-wrap medium", :placeholder=>"Code for Campaigns" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :maincontact, :class=>"control-label" %>
+    <div class="controls">
+      <%= f.text_field :maincontact, :class=>"m-wrap medium", :placeholder=>"Main Contact in the Customer" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :client_id, :class=>"control-label" %>
+    <div class="controls">
+      <%= f.collection_select(:client_id, Client.all, :id, :name) %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="span12">
+      <div class="span1">
+        First Name
+      </div>
+      <div class="span1">
+        Last Name
+      </div>
+      <div class="span1">
+        Contact Type
+      </div>
+      <div class="span2">
+        Address
+      </div>
+      <div class="span1">
+        Phone #
+      </div>
+      <div class="span1">
+        Secondary #
+      </div>
+      <div class="span1">
+      </div>
+    </div>
+    <%= f.fields_for :customer_contacts, :wrapper => false do |contact_form| %>
+        <div class="fields span12">
+          <div class="span1"><%= contact_form.text_field :first_name, :class=>'m-wrap small' %></div>
+          <div class="span1"><%= contact_form.text_field :last_name, :class=>'m-wrap small' %></div>
+          <div class="span1"><%= contact_form.collection_select(:contact_category_id, ContactCategory.all, :id, :name) %></div>
+          <div class="span2"><%= contact_form.text_field :address, :class=>'m-wrap medium' %></div>
+          <div class="span1"><%= contact_form.text_field :main_phone, :class=>'m-wrap small' %></div>
+          <div class="span1"><%= contact_form.text_field :other_phone, :class=>'m-wrap small' %></div>
+          <div class="span1"><%= contact_form.link_to_remove "Remove Contact" %></div>
+        </div>
+    <% end %>
+    <p><%= f.link_to_add "Add a Contact", :customer_contacts, :data => { :target =>  "#contacts"  } %></p>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :type=>"submit", :class=>"btn green" %>
+    <%= link_to 'Back', customers_path, :class=>"btn" %>
+  </div>
+<% end %>
