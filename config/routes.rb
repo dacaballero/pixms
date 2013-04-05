@@ -1,4 +1,10 @@
 Pixms::Application.routes.draw do
+  resources :customer_contacts
+
+  resources :contact_categories
+
+  resources :customers
+
   resources :user_profiles
 
   get "dashboard/show"

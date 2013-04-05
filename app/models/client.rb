@@ -3,4 +3,6 @@ class Client < ActiveRecord::Base
   has_attached_file :avatar, :styles => {:thumbnail => "86x35#", :small  => "172x70>", :medium => "258x105>"}
 
   validates_attachment_presence :avatar
+
+  has_many :customers
 end

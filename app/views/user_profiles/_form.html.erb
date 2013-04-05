@@ -35,7 +35,9 @@
                     </li>
                     <li class=""><a data-toggle="tab" href="#tab_2-2"><i class="icon-picture"></i> Change Avatar</a></li>
                     <li class=""><a data-toggle="tab" href="#tab_3-3"><i class="icon-lock"></i> Change Password</a></li>
-                    <li class=""><a data-toggle="tab" href="#tab_4-4"><i class="icon-eye-open"></i> Privacity Settings</a></li>
+                    <li class=""><a data-toggle="tab" href="#tab_4-4"><i class="icon-eye-open"></i> Client Assignment</a></li>
+                    <li class=""><a data-toggle="tab" href="#tab_5-5"><i class="icon-eye-open"></i> Customer Assignment</a></li>
+                    <li class=""><a data-toggle="tab" href="#tab_6-6"><i class="icon-eye-open"></i> Campaign Assignment</a></li>
                   </ul>
                 </div>
                 <div class="span9">
@@ -123,6 +125,36 @@
                           <%= f.password_field :password, :autocomplete => "off", :class => "m-wrap span8"  %>
                           <%= f.label :password_confirmation, :class=>'control-label' %>
                           <%= f.password_field :password_confirmation, :autocomplete => "off", :class => "m-wrap span8" %>
+                          <div class="submit-btn">
+                            <%= f.button :type=>"submit", :class=>"btn green" %>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                    <div id="tab_4-4" class="tab-pane">
+                      <div style="height: auto;" id="accordion4-4" class="accordion collapse">
+                        <%= nested_form_for @user_profile do |f| %>
+                          <%= f.fields_for :user_profile_clients do |client_form| %>
+                            <%= f.label :client_id, "Client" %>
+                            <%= client_form.collection_select(:client_id, Client.all, :id, :name) %>
+                            <%= client_form.link_to_remove "Remove this Client" %>
+                          <% end %>
+                          <p><%= f.link_to_add "Add a Client", :user_profile_clients %></p>
+                          <div class="submit-btn">
+                            <%= f.button :type=>"submit", :class=>"btn green" %>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                    <div id="tab_5-5" class="tab-pane">
+                      <div style="height: auto;" id="accordion5-5" class="accordion collapse">
+                        <%= nested_form_for @user_profile do |f| %>
+                          <%= f.fields_for :user_profile_customers do |customer_form| %>
+                            <%= f.label :customer_id, "Customer" %>
+                            <%= customer_form.collection_select(:customer_id, @possible_customers, :id, :name) %>
+                            <%= customer_form.link_to_remove "Remove this Client" %>
+                          <% end %>
+                          <p><%= f.link_to_add "Add a Customer", :user_profile_customers %></p>
                           <div class="submit-btn">
                             <%= f.button :type=>"submit", :class=>"btn green" %>
                           </div>

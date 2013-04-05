@@ -74,6 +74,7 @@ class ClientsController < ApplicationController
   def show
     @client = Client.find(params[:id])
     session[:client_id] = @client.id
+    session[:client] = @client
     respond_to do |format|
       format.html { redirect_to :controller=>"dashboard", :action=>"show" }
       format.json { head :no_content }

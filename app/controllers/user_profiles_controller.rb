@@ -4,12 +4,13 @@ class UserProfilesController < ApplicationController
   def edit
     #@user_profile = UserProfile.find(params[:id])
     @user = User.find(params[:id])
-
     if @user.user_profile.nil?
       @user.user_profile = UserProfile.new
     end
 
     @user_profile = @user.user_profile
+    @clients= @user_profile.user_profile_clients.collect{|a| a.client_id}.to_a
+    @possible_customers = Customer.find(:all, :conditions => {:client_id => @clients})
   end
 
   # PUT /user_profiles/1

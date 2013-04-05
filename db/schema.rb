@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130320013726) do
+ActiveRecord::Schema.define(:version => 20130403023204) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,53 @@ ActiveRecord::Schema.define(:version => 20130320013726) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.text     "welcome_text"
+  end
+
+  create_table "contact_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "customer_contacts", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "contact_category_id"
+    t.string   "position"
+    t.string   "bio"
+    t.string   "address"
+    t.string   "main_phone"
+    t.string   "other_phone"
+    t.integer  "customer_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "customers", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.string   "maincontact"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.integer  "client_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "user_profile_clients", :force => true do |t|
+    t.integer  "client_id"
+    t.integer  "user_profile_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "user_profile_customers", :force => true do |t|
+    t.integer  "customer_id"
+    t.integer  "user_profile_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "user_profiles", :force => true do |t|
