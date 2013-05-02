@@ -1,0 +1,50 @@
+<div class="profile-classic row-fluid">
+  <div class="span12">
+    <h3><%= @publication.code + " - " + @publication.name %></h3>
+  </div>
+  <div class="clearfix"></div>
+  <div class="row-fluid">
+    <div class="span4">
+      <ul class="unstyled span12">
+        <li>
+          <span>Pub Title:</span>
+          <%= @publication.pub_title %>
+        </li>
+        <li>
+          <span>Pub Bio:</span>
+          <%= @publication.pub_bio %>
+        </li>
+        <li>
+          <hr/>
+        </li>
+        <li>
+          <span>Publication Date:</span>
+          <%= @publication.pub_date %>
+        </li>
+        <li>
+          <span>Version:</span>
+          <%= @publication.version %>
+        </li>
+        <li>
+          <span>Description:</span>
+          <%= @publication.description %>
+        </li>
+        <li>
+          <span>Publication Type:</span>
+          <%= @publication.publication_type.name %>
+        </li>
+        <li>
+          <span>Status:</span>
+          <%= @publication.publication_status.name %>
+        </li>
+        <li>
+          <span>Current Approver:</span>
+          <%= @publication.current_approver %>
+        </li>
+      </ul>
+    </div>
+    <div class="span8">
+      <%= image_tag @publication.pub_image.url() %>
+    </div>
+  </div>
+</div>

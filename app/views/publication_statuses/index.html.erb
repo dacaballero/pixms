@@ -1,0 +1,23 @@
+<h1>Listing publication_statuses</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @publication_statuses.each do |publication_status| %>
+  <tr>
+    <td><%= publication_status.name %></td>
+    <td><%= link_to 'Show', publication_status %></td>
+    <td><%= link_to 'Edit', edit_publication_status_path(publication_status) %></td>
+    <td><%= link_to 'Destroy', publication_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Publication status', new_publication_status_path %>

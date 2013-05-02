@@ -4,7 +4,7 @@ class CreateUserProfiles < ActiveRecord::Migration
       t.integer  :user_id
       t.string :first_name
       t.string :last_name
-      t.attachment :avatar
+      t.has_attached_file :avatar
       t.date :birthdate
       t.string :country
       t.text :address

@@ -1,0 +1,51 @@
+<h1>Listing campaign_publication_archives</h1>
+
+<table>
+  <tr>
+    <th>Campaign publication</th>
+    <th>String</th>
+    <th>Code</th>
+    <th>Pub bio</th>
+    <th>Description</th>
+    <th>Version</th>
+    <th>String</th>
+    <th>Pub image</th>
+    <th>Publication type</th>
+    <th>Current approver</th>
+    <th>Publication status</th>
+    <th>Date final approved</th>
+    <th>Pub date</th>
+    <th>Campaign</th>
+    <th>Observations</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @campaign_publication_archives.each do |campaign_publication_archive| %>
+  <tr>
+    <td><%= campaign_publication_archive.campaign_publication_id %></td>
+    <td><%= campaign_publication_archive.string %></td>
+    <td><%= campaign_publication_archive.code %></td>
+    <td><%= campaign_publication_archive.pub_bio %></td>
+    <td><%= campaign_publication_archive.description %></td>
+    <td><%= campaign_publication_archive.version %></td>
+    <td><%= campaign_publication_archive.string %></td>
+    <td><%= campaign_publication_archive.pub_image %></td>
+    <td><%= campaign_publication_archive.publication_type_id %></td>
+    <td><%= campaign_publication_archive.current_approver %></td>
+    <td><%= campaign_publication_archive.publication_status_id %></td>
+    <td><%= campaign_publication_archive.date_final_approved %></td>
+    <td><%= campaign_publication_archive.pub_date %></td>
+    <td><%= campaign_publication_archive.campaign_id %></td>
+    <td><%= campaign_publication_archive.observations %></td>
+    <td><%= link_to 'Show', campaign_publication_archive %></td>
+    <td><%= link_to 'Edit', edit_campaign_publication_archive_path(campaign_publication_archive) %></td>
+    <td><%= link_to 'Destroy', campaign_publication_archive, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Campaign publication archive', new_campaign_publication_archive_path %>

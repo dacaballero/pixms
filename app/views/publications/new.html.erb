@@ -1,0 +1,5 @@
+<% title @publication.campaign.name %><% subtitle "New Publication" %>
+
+<%= form_for(@publication, :url => campaign_publications_path(@publication.campaign_id), :html => { :class => "form-horizontal"}) do |f| %>
+<%= render :partial => 'form', :locals => { :f => f} %>
+<% end %>

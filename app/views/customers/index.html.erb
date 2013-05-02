@@ -33,6 +33,7 @@
 
     <table class="table table-striped table-hover table-bordered" id="list_table">
     <tr>
+      <th>Logo</th>
       <th>Name</th>
       <th>Code</th>
       <th>Maincontact</th>
@@ -44,10 +45,10 @@
 
   <% @customers.each do |customer| %>
     <tr>
+      <td><%= image_tag customer.avatar.url(:small) %></td>
       <td><%= customer.name %></td>
       <td><%= customer.code %></td>
       <td><%= customer.maincontact %></td>
-      <td><%= customer.avatar %></td>
       <td><%= link_to 'Show', customer %></td>
       <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
       <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>

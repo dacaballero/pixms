@@ -2,7 +2,7 @@ class ContactCategoriesController < ApplicationController
   # GET /contact_categories
   # GET /contact_categories.json
   def index
-    @contact_categories = ContactCategory.all
+    @contact_categories = ContactCategory.find(:all, :conditions => {:client_id => session[:client_id]})
 
     respond_to do |format|
       format.html # index.html.erb
@@ -30,6 +30,7 @@ class ContactCategoriesController < ApplicationController
   # POST /contact_categories.json
   def create
     @contact_category = ContactCategory.new(params[:contact_category])
+    @contact_category.client_id = session[:client_id]
 
     respond_to do |format|
       if @contact_category.save

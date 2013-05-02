@@ -11,7 +11,61 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130403023204) do
+ActiveRecord::Schema.define(:version => 20130423010022) do
+
+  create_table "approval_process_details", :force => true do |t|
+    t.integer  "approval_process_id"
+    t.integer  "user_id"
+    t.integer  "approval_order"
+    t.boolean  "is_final"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.integer  "publication_status_id"
+  end
+
+  create_table "approval_processes", :force => true do |t|
+    t.string   "name"
+    t.integer  "client_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "rejected_status_id"
+  end
+
+  create_table "approvals", :force => true do |t|
+    t.datetime "approval_date"
+    t.integer  "user_id"
+    t.string   "decision"
+    t.integer  "publication_id"
+    t.string   "observations"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+    t.boolean  "approved"
+    t.string   "pub_title_quick_edit"
+    t.string   "pub_bio_quick_edit"
+    t.boolean  "has_pub_bio_quick_edit"
+    t.boolean  "has_pub_title_quick_edit"
+    t.integer  "approval_status_id"
+  end
+
+  create_table "campaigns", :force => true do |t|
+    t.string   "name"
+    t.date     "date_start"
+    t.date     "date_ent"
+    t.boolean  "is_open"
+    t.decimal  "initial_budget"
+    t.decimal  "current_budget"
+    t.decimal  "acum_cost"
+    t.integer  "customer_id"
+    t.string   "campaign_code"
+    t.integer  "client_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.integer  "approval_process_id"
+  end
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -30,10 +84,19 @@ ActiveRecord::Schema.define(:version => 20130403023204) do
     t.text     "welcome_text"
   end
 
+  create_table "comments", :force => true do |t|
+    t.string   "title"
+    t.string   "note"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "contact_categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "client_id"
   end
 
   create_table "customer_contacts", :force => true do |t|
@@ -61,6 +124,74 @@ ActiveRecord::Schema.define(:version => 20130403023204) do
     t.integer  "client_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+  end
+
+  create_table "publication_archives", :force => true do |t|
+    t.integer  "publication_id"
+    t.string   "name"
+    t.string   "code"
+    t.string   "pub_bio"
+    t.string   "description"
+    t.integer  "version"
+    t.string   "pub_title"
+    t.string   "pub_image_file_name"
+    t.string   "pub_image_content_type"
+    t.integer  "pub_image_file_size"
+    t.datetime "pub_image_updated_at"
+    t.integer  "publication_type_id"
+    t.string   "current_approver"
+    t.integer  "publication_status_id"
+    t.date     "date_final_approved"
+    t.date     "pub_date"
+    t.integer  "campaign_id"
+    t.string   "observations"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
+
+  create_table "publication_comments", :force => true do |t|
+    t.integer  "comment_id"
+    t.integer  "publication_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "publication_statuses", :force => true do |t|
+    t.string   "name"
+    t.integer  "client_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "publication_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "client_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "publications", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.string   "pub_bio"
+    t.string   "description"
+    t.integer  "version"
+    t.string   "pub_title"
+    t.string   "pub_image_file_name"
+    t.string   "pub_image_content_type"
+    t.integer  "pub_image_file_size"
+    t.datetime "pub_image_updated_at"
+    t.integer  "publication_type_id"
+    t.string   "current_approver"
+    t.integer  "publication_status_id"
+    t.date     "date_final_approved"
+    t.date     "pub_date"
+    t.integer  "campaign_id"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.integer  "approval_process_id"
+    t.integer  "creator_user_id"
+    t.integer  "designer_user_id"
   end
 
   create_table "user_profile_clients", :force => true do |t|

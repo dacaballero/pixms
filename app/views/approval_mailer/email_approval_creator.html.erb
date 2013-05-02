@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>The publication: <%= @publication.code %> on <%= publication.approval_status.name %>was Approved by <%= @approval.user.email%></h1>
+    <table>
+      <tr>
+        <td colspan="2"><%= @publication.code + " - " + @publication.name %></td>
+      </tr>
+      <tr>
+        <td style="width: 50%">
+          <%= image_tag @publication.pub_image.url() %>
+        </td>
+        <td>
+          <table>
+            <tr>
+              <td>Title:</td>
+              <td><%= @publication.pub_title %></td>
+            </tr>
+            <tr>
+              <td>Bio:</td>
+              <td><%= @publication.pub_bio %></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+    <p>Thanks and have a great day!</p>
+  </body>
+</html>

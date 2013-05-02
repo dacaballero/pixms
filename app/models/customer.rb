@@ -6,6 +6,8 @@ class Customer < ActiveRecord::Base
 
   has_many :customer_contacts
   accepts_nested_attributes_for :customer_contacts
+
+  has_many :campaigns
   
   
 end

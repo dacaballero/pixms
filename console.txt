@@ -1,0 +1,345 @@
+=> Booting WEBrick
+=> Rails 3.2.12 application starting in development on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+
+
+Started GET "/publications/2/approvals/new?decision=approve" for 127.0.0.1 at 2013-04-22 21:11:17 -0600
+Processing by ApprovalsController#new as HTML
+  Parameters: {"decision"=>"approve", "publication_id"=>"2"}
+  [1m[36mPublication Load (1.0ms)[0m  [1mSELECT "publications".* FROM "publications" WHERE "publications"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mPublication Load (0.0ms)[0m  SELECT "publications".* FROM "publications" WHERE "publications"."id" = 2 LIMIT 1
+  [1m[36mPublicationType Load (0.0ms)[0m  [1mSELECT "publication_types".* FROM "publication_types" WHERE "publication_types"."id" = 1 LIMIT 1[0m
+  [1m[35mPublicationStatus Load (0.0ms)[0m  SELECT "publication_statuses".* FROM "publication_statuses" WHERE "publication_statuses"."id" = 4 LIMIT 1
+  Rendered publications/_publication.html.erb (28.0ms)
+  Rendered approvals/_form.html.erb (3305.2ms)
+  Rendered approvals/new.html.erb within layouts/application (3375.3ms)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mPublication Load (0.0ms)[0m  SELECT "publications".* FROM "publications" WHERE "publications"."current_approver" = 'ejemplo@pixelabdigital.com'
+  [1m[36mUserProfile Load (1.0ms)[0m  [1mSELECT "user_profiles".* FROM "user_profiles" WHERE "user_profiles"."user_id" = 2 LIMIT 1[0m
+Completed 200 OK in 4251ms (Views: 4025.7ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/assets/bootstrap/css/bootstrap.min.css" for 127.0.0.1 at 2013-04-22 21:11:21 -0600
+Served asset /bootstrap/css/bootstrap.min.css - 304 Not Modified (48ms)
+
+
+Started GET "/assets/css/metro.css" for 127.0.0.1 at 2013-04-22 21:11:21 -0600
+Served asset /css/metro.css - 304 Not Modified (15ms)
+
+
+Started GET "/assets/bootstrap/css/bootstrap-responsive.min.css" for 127.0.0.1 at 2013-04-22 21:11:21 -0600
+Served asset /bootstrap/css/bootstrap-responsive.min.css - 304 Not Modified (42ms)
+
+
+Started GET "/assets/bootstrap-fileupload/bootstrap-fileupload.css" for 127.0.0.1 at 2013-04-22 21:11:21 -0600
+Served asset /bootstrap-fileupload/bootstrap-fileupload.css - 304 Not Modified (14ms)
+
+
+Started GET "/assets/css/style.css" for 127.0.0.1 at 2013-04-22 21:11:21 -0600
+Served asset /css/style.css - 304 Not Modified (18ms)
+
+
+Started GET "/assets/font-awesome/css/font-awesome.css" for 127.0.0.1 at 2013-04-22 21:11:22 -0600
+Served asset /font-awesome/css/font-awesome.css - 304 Not Modified (14ms)
+
+
+Started GET "/assets/css/style_responsive.css" for 127.0.0.1 at 2013-04-22 21:11:22 -0600
+Served asset /css/style_responsive.css - 304 Not Modified (15ms)
+
+
+Started GET "/assets/css/style_default.css" for 127.0.0.1 at 2013-04-22 21:11:22 -0600
+Served asset /css/style_default.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/gritter/css/jquery.gritter.css" for 127.0.0.1 at 2013-04-22 21:11:22 -0600
+Served asset /gritter/css/jquery.gritter.css - 304 Not Modified (35ms)
+
+
+Started GET "/assets/uniform/css/uniform.default.css" for 127.0.0.1 at 2013-04-22 21:11:22 -0600
+Served asset /uniform/css/uniform.default.css - 304 Not Modified (16ms)
+
+
+Started GET "/assets/bootstrap-datepicker/css/datepicker.css" for 127.0.0.1 at 2013-04-22 21:11:22 -0600
+Served asset /bootstrap-datepicker/css/datepicker.css - 304 Not Modified (15ms)
+
+
+Started GET "/assets/bootstrap-daterangepicker/daterangepicker.css" for 127.0.0.1 at 2013-04-22 21:11:22 -0600
+Served asset /bootstrap-daterangepicker/daterangepicker.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" for 127.0.0.1 at 2013-04-22 21:11:22 -0600
+Served asset /fullcalendar/fullcalendar/bootstrap-fullcalendar.css - 304 Not Modified (14ms)
+
+
+Started GET "/assets/jqvmap/jqvmap/jqvmap.css" for 127.0.0.1 at 2013-04-22 21:11:22 -0600
+Served asset /jqvmap/jqvmap/jqvmap.css - 304 Not Modified (16ms)
+
+
+Started GET "/assets/data-tables/DT_bootstrap.css" for 127.0.0.1 at 2013-04-22 21:11:22 -0600
+Served asset /data-tables/DT_bootstrap.css - 304 Not Modified (15ms)
+
+
+Started GET "/assets/chosen-bootstrap/chosen/chosen.css" for 127.0.0.1 at 2013-04-22 21:11:22 -0600
+Served asset /chosen-bootstrap/chosen/chosen.css - 304 Not Modified (16ms)
+
+
+Started GET "/assets/jquery-tags-input/jquery.tagsinput.css" for 127.0.0.1 at 2013-04-22 21:11:22 -0600
+Served asset /jquery-tags-input/jquery.tagsinput.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/bootstrap-toggle-buttons/static/stylesheets/bootstrap-toggle-buttons.css" for 127.0.0.1 at 2013-04-22 21:11:22 -0600
+Served asset /bootstrap-toggle-buttons/static/stylesheets/bootstrap-toggle-buttons.css - 304 Not Modified (16ms)
+
+
+Started GET "/assets/address.css?body=1" for 127.0.0.1 at 2013-04-22 21:11:22 -0600
+Served asset /address.css - 304 Not Modified (28ms)
+
+
+Started GET "/assets/approval_processes.css?body=1" for 127.0.0.1 at 2013-04-22 21:11:22 -0600
+Served asset /approval_processes.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/approvals.css?body=1" for 127.0.0.1 at 2013-04-22 21:11:23 -0600
+Served asset /approvals.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/campaign_publication_archives.css?body=1" for 127.0.0.1 at 2013-04-22 21:11:23 -0600
+Served asset /campaign_publication_archives.css - 304 Not Modified (28ms)
+
+
+Started GET "/assets/campaign_publications.css?body=1" for 127.0.0.1 at 2013-04-22 21:11:23 -0600
+Served asset /campaign_publications.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-04-22 21:11:23 -0600
+Served asset /clients.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-04-22 21:11:23 -0600
+Served asset /comments.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/contact_categories.css?body=1" for 127.0.0.1 at 2013-04-22 21:11:23 -0600
+Served asset /contact_categories.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/customer_campaigns.css?body=1" for 127.0.0.1 at 2013-04-22 21:11:23 -0600
+Served asset /customer_campaigns.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/customer_contacts.css?body=1" for 127.0.0.1 at 2013-04-22 21:11:23 -0600
+Served asset /customer_contacts.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/customers.css?body=1" for 127.0.0.1 at 2013-04-22 21:11:23 -0600
+Served asset /customers.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/dashboard.css?body=1" for 127.0.0.1 at 2013-04-22 21:11:23 -0600
+Served asset /dashboard.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/publication_statuses.css?body=1" for 127.0.0.1 at 2013-04-22 21:11:23 -0600
+Served asset /publication_statuses.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/publication_types.css?body=1" for 127.0.0.1 at 2013-04-22 21:11:23 -0600
+Served asset /publication_types.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-04-22 21:11:23 -0600
+Served asset /scaffolds.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2013-04-22 21:11:23 -0600
+Served asset /static_pages.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/user_profiles.css?body=1" for 127.0.0.1 at 2013-04-22 21:11:23 -0600
+Served asset /user_profiles.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-04-22 21:11:23 -0600
+Served asset /jquery.js - 304 Not Modified (35ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-04-22 21:11:23 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/approval_processes.js?body=1" for 127.0.0.1 at 2013-04-22 21:11:24 -0600
+Served asset /approval_processes.js - 304 Not Modified (27ms)
+
+
+Started GET "/assets/approvals.js?body=1" for 127.0.0.1 at 2013-04-22 21:11:24 -0600
+Served asset /approvals.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/campaign_publication_archives.js?body=1" for 127.0.0.1 at 2013-04-22 21:11:24 -0600
+Served asset /campaign_publication_archives.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/campaign_publications.js?body=1" for 127.0.0.1 at 2013-04-22 21:11:24 -0600
+Served asset /campaign_publications.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-04-22 21:11:24 -0600
+Served asset /clients.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2013-04-22 21:11:24 -0600
+Served asset /comments.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/contact_categories.js?body=1" for 127.0.0.1 at 2013-04-22 21:11:24 -0600
+Served asset /contact_categories.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/customer_campaigns.js?body=1" for 127.0.0.1 at 2013-04-22 21:11:24 -0600
+Served asset /customer_campaigns.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/customer_contacts.js?body=1" for 127.0.0.1 at 2013-04-22 21:11:24 -0600
+Served asset /customer_contacts.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/customers.js?body=1" for 127.0.0.1 at 2013-04-22 21:11:24 -0600
+Served asset /customers.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/dashboard.js?body=1" for 127.0.0.1 at 2013-04-22 21:11:24 -0600
+Served asset /dashboard.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/publication_statuses.js?body=1" for 127.0.0.1 at 2013-04-22 21:11:24 -0600
+Served asset /publication_statuses.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/publication_types.js?body=1" for 127.0.0.1 at 2013-04-22 21:11:24 -0600
+Served asset /publication_types.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2013-04-22 21:11:24 -0600
+Served asset /static_pages.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/user_profiles.js?body=1" for 127.0.0.1 at 2013-04-22 21:11:24 -0600
+Served asset /user_profiles.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_nested_form.js?body=1" for 127.0.0.1 at 2013-04-22 21:11:24 -0600
+Served asset /jquery_nested_form.js - 304 Not Modified (7ms)
+
+
+Started GET "/publications/2/approvals/false" for 127.0.0.1 at 2013-04-22 21:11:24 -0600
+Processing by ApprovalsController#show as HTML
+  Parameters: {"publication_id"=>"2", "id"=>"false"}
+  [1m[35mApproval Load (1.0ms)[0m  SELECT "approvals".* FROM "approvals" WHERE "approvals"."id" = ? LIMIT 1  [["id", "false"]]
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Approval with id=false):
+  app/controllers/approvals_controller.rb:16:in `show'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.0ms)
+
+
+Started GET "/assets/js/jquery-1.8.3.min.js" for 127.0.0.1 at 2013-04-22 21:11:25 -0600
+Served asset /js/jquery-1.8.3.min.js - 304 Not Modified (18ms)
+
+
+Started GET "/assets/breakpoints/breakpoints.js" for 127.0.0.1 at 2013-04-22 21:11:25 -0600
+Served asset /breakpoints/breakpoints.js - 304 Not Modified (37ms)
+
+
+Started GET "/assets/jquery-ui/jquery-ui-1.10.1.custom.min.js" for 127.0.0.1 at 2013-04-22 21:11:25 -0600
+Served asset /jquery-ui/jquery-ui-1.10.1.custom.min.js - 304 Not Modified (24ms)
+
+
+Started GET "/assets/jquery-slimscroll/jquery.slimscroll.min.js" for 127.0.0.1 at 2013-04-22 21:11:25 -0600
+Served asset /jquery-slimscroll/jquery.slimscroll.min.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/fullcalendar/fullcalendar/fullcalendar.min.js" for 127.0.0.1 at 2013-04-22 21:11:25 -0600
+Served asset /fullcalendar/fullcalendar/fullcalendar.min.js - 304 Not Modified (16ms)
+
+
+Started GET "/assets/bootstrap/js/bootstrap.min.js" for 127.0.0.1 at 2013-04-22 21:11:25 -0600
+Served asset /bootstrap/js/bootstrap.min.js - 304 Not Modified (40ms)
+
+
+Started GET "/assets/bootstrap-fileupload/bootstrap-fileupload.js" for 127.0.0.1 at 2013-04-22 21:11:25 -0600
+Served asset /bootstrap-fileupload/bootstrap-fileupload.js - 304 Not Modified (14ms)
+
+
+Started GET "/assets/js/jquery.blockui.js" for 127.0.0.1 at 2013-04-22 21:11:25 -0600
+Served asset /js/jquery.blockui.js - 304 Not Modified (16ms)
+
+
+Started GET "/assets/js/jquery.cookie.js" for 127.0.0.1 at 2013-04-22 21:11:25 -0600
+Served asset /js/jquery.cookie.js - 304 Not Modified (13ms)
+
+
+Started GET "/assets/gritter/js/jquery.gritter.js" for 127.0.0.1 at 2013-04-22 21:11:25 -0600
+Served asset /gritter/js/jquery.gritter.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/uniform/jquery.uniform.min.js" for 127.0.0.1 at 2013-04-22 21:11:25 -0600
+Served asset /uniform/jquery.uniform.min.js - 304 Not Modified (17ms)
+
+
+Started GET "/assets/js/jquery.pulsate.min.js" for 127.0.0.1 at 2013-04-22 21:11:25 -0600
+Served asset /js/jquery.pulsate.min.js - 304 Not Modified (13ms)
+
+
+Started GET "/assets/bootstrap-datepicker/js/bootstrap-datepicker.js" for 127.0.0.1 at 2013-04-22 21:11:25 -0600
+Served asset /bootstrap-datepicker/js/bootstrap-datepicker.js - 304 Not Modified (14ms)
+
+
+Started GET "/assets/bootstrap-daterangepicker/date.js" for 127.0.0.1 at 2013-04-22 21:11:26 -0600
+Served asset /bootstrap-daterangepicker/date.js - 304 Not Modified (17ms)
+
+
+Started GET "/assets/bootstrap-daterangepicker/daterangepicker.js" for 127.0.0.1 at 2013-04-22 21:11:26 -0600
+Served asset /bootstrap-daterangepicker/daterangepicker.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/js/app.js" for 127.0.0.1 at 2013-04-22 21:11:26 -0600
+Served asset /js/app.js - 304 Not Modified (18ms)
+
+
+Started GET "/assets/data-tables/jquery.dataTables.js" for 127.0.0.1 at 2013-04-22 21:11:26 -0600
+Served asset /data-tables/jquery.dataTables.js - 304 Not Modified (42ms)
+
+
+Started GET "/assets/data-tables/DT_bootstrap.js" for 127.0.0.1 at 2013-04-22 21:11:26 -0600
+Served asset /data-tables/DT_bootstrap.js - 304 Not Modified (14ms)
+
+
+Started GET "/assets/bootstrap-toggle-buttons/static/js/jquery.toggle.buttons.js" for 127.0.0.1 at 2013-04-22 21:11:26 -0600
+Served asset /bootstrap-toggle-buttons/static/js/jquery.toggle.buttons.js - 304 Not Modified (14ms)
+
+
+Started GET "/assets/chosen-bootstrap/chosen/chosen.jquery.min.js" for 127.0.0.1 at 2013-04-22 21:11:26 -0600
+Served asset /chosen-bootstrap/chosen/chosen.jquery.min.js - 304 Not Modified (17ms)
+
+
+Started GET "/assets/jquery-tags-input/jquery.tagsinput.min.js" for 127.0.0.1 at 2013-04-22 21:11:26 -0600
+Served asset /jquery-tags-input/jquery.tagsinput.min.js - 304 Not Modified (19ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js" for 127.0.0.1 at 2013-04-22 21:11:26 -0600
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (45ms)
+
+
+Started GET "/assets/img/sidebar-toggler.jpg" for 127.0.0.1 at 2013-04-22 21:11:26 -0600
+Served asset /img/sidebar-toggler.jpg - 304 Not Modified (9ms)
+
+
+Started GET "/assets/img/search-icon.png" for 127.0.0.1 at 2013-04-22 21:11:26 -0600
+Served asset /img/search-icon.png - 304 Not Modified (7ms)
+Exiting
+Terminate batch job (Y/N)? Terminate batch job (Y/N)? Terminate batch job (Y/N)? 

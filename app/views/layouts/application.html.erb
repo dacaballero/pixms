@@ -56,54 +56,22 @@
 					<li class="dropdown" id="header_notification_bar">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-warning-sign"></i>
-						<span class="badge">1</span>
+						<% @pending_approvals = Publication.find(:all, :conditions => { :current_approver => current_user.email }) %>
+						<% if @pending_approvals.count > 0 %>
+							<span class="badge"><%= @pending_approvals.count %></span>
+						<% end %>
 						</a>
 						<ul class="dropdown-menu extended notification">
 							<li>
-								<p>You have 14 new notifications</p>
+								<p>You have <%= @pending_approvals.count %> new pending approvals</p>
 							</li>
-							<li>
-								<a href="javascript:;" onclick="App.onNotificationClick(1)">
-								<span class="label label-success"><i class="icon-plus"></i></span>
-								New user registered. 
-								<span class="time">Just now</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-								<span class="label label-important"><i class="icon-bolt"></i></span>
-								Server #12 overloaded. 
-								<span class="time">15 mins</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-								<span class="label label-warning"><i class="icon-bell"></i></span>
-								Server #2 not respoding.
-								<span class="time">22 mins</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-								<span class="label label-info"><i class="icon-bullhorn"></i></span>
-								Application error.
-								<span class="time">40 mins</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-								<span class="label label-important"><i class="icon-bolt"></i></span>
-								Database overloaded 68%. 
-								<span class="time">2 hrs</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-								<span class="label label-important"><i class="icon-bolt"></i></span>
-								2 user IP blocked.
-								<span class="time">5 hrs</span>
-								</a>
-							</li>
+							<% @pending_approvals.each do |publication| %>
+								<li>
+									<%= link_to raw('<span class="label label-success"><i class="icon-plus"></i></span>' + publication.code + ' - ' + publication.name + '<span class="time"></span>'), new_publication_approval_path(publication)%>
+								</li>
+							<% end %>
+							
+							
 							<li class="external">
 								<a href="#">See all notifications <i class="m-icon-swapright"></i></a>
 							</li>
@@ -169,8 +137,8 @@
 					<!-- BEGIN USER LOGIN DROPDOWN -->
 					<li class="dropdown user">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<img alt="" src="<%= !current_user.user_profile.avatar.file? ? '/assets/avatar1_small.jpg' : current_user.user_profile.avatar.url(:thumbnail) %>" />
-						<span class="username"><%= current_user.user_profile.name %></span>
+						<img alt="" src="<%= !current_user.user_profile.nil? and !current_user.user_profile.avatar.file? ? '/assets/avatar1_small.jpg' : current_user.user_profile.avatar.url(:thumbnail) %>" />
+						<span class="username"><%= !current_user.user_profile.nil? ? current_user.user_profile.name : current_user.email %></span>
 						<i class="icon-angle-down"></i>
 						</a>
 						<ul class="dropdown-menu">
@@ -220,9 +188,8 @@
 						<!-- END RESPONSIVE QUICK SEARCH FORM -->
 					</li>
 					<li class="start active ">
-						<a href="index.html">
-						<i class="icon-home"></i> 
-						<span class="title">Dashboard</span>
+						<%= link_to raw('<i class="icon-home"></i><span class="title">Dashboard</span>'), :controller => 'dashboard', :action => 'show' %>
+						
 						<span class="selected"></span>
 						</a>
 					</li>
@@ -242,76 +209,12 @@
 						</a>
 						<ul class="sub">
 							<li ><%= link_to 'Contact Categories', contact_categories_path %></li>
-							<li ><a href="table_managed.html">Managed Tables</a></li>
-							<li ><a href="table_editable.html">Editable Tables</a></li>
+							<li ><%= link_to 'Publication Status', publication_statuses_path %></li>
+							<li ><%= link_to 'Publication Type', publication_types_path %></li>
+							<li ><%= link_to 'Approval Process', approval_processes_path %></li>
 						</ul>
-					</li>
-					<li class="has-sub ">
-						<a href="javascript:;">
-						<i class="icon-th-list"></i> 
-						<span class="title">Portlets</span>
-						<span class="arrow "></span>
-						</a>
-						<ul class="sub">
-							<li ><a href="portlet_general.html">General Portlets</a></li>
-							<li ><a href="portlet_draggable.html">Draggable Portlets</a></li>
-						</ul>
-					</li>
-					<li class="has-sub ">
-						<a href="javascript:;">
-						<i class="icon-map-marker"></i> 
-						<span class="title">Maps</span>
-						<span class="arrow "></span>
-						</a>
-						<ul class="sub">
-							<li ><a href="maps_google.html">Google Maps</a></li>
-							<li ><a href="maps_vector.html">Vector Maps</a></li>
-						</ul>
-					</li>
-					<li class="">
-						<a href="charts.html">
-						<i class="icon-bar-chart"></i> 
-						<span class="title">Visual Charts</span>
-						</a>
-					</li>
-					<li class="">
-						<a href="calendar.html">
-						<i class="icon-calendar"></i> 
-						<span class="title">Calendar</span>
-						</a>
-					</li>
-					<li class="">
-						<a href="gallery.html">
-						<i class="icon-camera"></i> 
-						<span class="title">Gallery</span>
-						</a>
-					</li>
-					<li class="has-sub ">
-						<a href="javascript:;">
-						<i class="icon-briefcase"></i> 
-						<span class="title">Extra</span>
-						<span class="arrow "></span>
-						</a>
-						<ul class="sub">
-							<li ><a href="extra_profile.html">User Profile</a></li>
-							<li ><a href="extra_faq.html">FAQ</a></li>
-							<li ><a href="extra_search.html">Search Results</a></li>
-							<li ><a href="extra_invoice.html">Invoice</a></li>
-							<li ><a href="extra_pricing_table.html">Pricing Tables</a></li>
-							<li ><a href="extra_404.html">404 Page</a></li>
-							<li ><a href="extra_500.html">500 Page</a></li>
-							<li ><a href="extra_blank.html">Blank Page</a></li>
-							<li ><a href="extra_full_width.html">Full Width Page</a></li>
-						</ul>
-					</li>
-					<li class="">
-						<a href="login.html">
-						<i class="icon-user"></i> 
-						<span class="title">Login Page</span>
-						</a>
 					</li>
 				</ul>
-				<%= render_navigation() %>
 				<!-- END SIDEBAR MENU -->
 			</div>
 		<!-- END SIDEBAR -->
@@ -339,7 +242,11 @@
 							<small><%= yield(:subtitle) %></small>
 						</h3>
 						<div class="breadcrumb">
-							<%= render_navigation :renderer => :breadcrumbs, :join_with => " &gt; " %>
+							<li>
+								<%= link_to raw('<i class="icon-home"></i><span class="title">Dashboard</span>'), :controller => 'dashboard', :action => 'show' %>
+								<i class="icon-angle-right"></i>
+							</li>
+							<%= yield(:breadcrumbs) %>
 						</div>
 						<!-- END PAGE TITLE & BREADCRUMB-->
 					</div>

@@ -1,0 +1,77 @@
+<%= form_for(@campaign_publication_archive) do |f| %>
+  <% if @campaign_publication_archive.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@campaign_publication_archive.errors.count, "error") %> prohibited this campaign_publication_archive from being saved:</h2>
+
+      <ul>
+      <% @campaign_publication_archive.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :campaign_publication_id %><br />
+    <%= f.number_field :campaign_publication_id %>
+  </div>
+  <div class="field">
+    <%= f.label :string %><br />
+    <%= f.text_field :string %>
+  </div>
+  <div class="field">
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </div>
+  <div class="field">
+    <%= f.label :pub_bio %><br />
+    <%= f.text_field :pub_bio %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :version %><br />
+    <%= f.number_field :version %>
+  </div>
+  <div class="field">
+    <%= f.label :string %><br />
+    <%= f.text_field :string %>
+  </div>
+  <div class="field">
+    <%= f.label :pub_image %><br />
+    <%= f.text_field :pub_image %>
+  </div>
+  <div class="field">
+    <%= f.label :publication_type_id %><br />
+    <%= f.number_field :publication_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :current_approver %><br />
+    <%= f.text_field :current_approver %>
+  </div>
+  <div class="field">
+    <%= f.label :publication_status_id %><br />
+    <%= f.number_field :publication_status_id %>
+  </div>
+  <div class="field">
+    <%= f.label :date_final_approved %><br />
+    <%= f.date_select :date_final_approved %>
+  </div>
+  <div class="field">
+    <%= f.label :pub_date %><br />
+    <%= f.date_select :pub_date %>
+  </div>
+  <div class="field">
+    <%= f.label :campaign_id %><br />
+    <%= f.number_field :campaign_id %>
+  </div>
+  <div class="field">
+    <%= f.label :observations %><br />
+    <%= f.text_field :observations %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

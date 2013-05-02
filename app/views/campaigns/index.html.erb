@@ -1,0 +1,43 @@
+<h1>Listing customer_campaigns</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Date start</th>
+    <th>Date ent</th>
+    <th>Is open</th>
+    <th>Initial budget</th>
+    <th>Current budget</th>
+    <th>Acum cost</th>
+    <th>Customer</th>
+    <th>Campaign code</th>
+    <th>Approval flow</th>
+    <th>Client</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @campaigns.each do |campaign| %>
+  <tr>
+    <td><%= campaign.name %></td>
+    <td><%= campaign.date_start %></td>
+    <td><%= campaign.date_ent %></td>
+    <td><%= campaign.is_open %></td>
+    <td><%= campaign.initial_budget %></td>
+    <td><%= campaign.current_budget %></td>
+    <td><%= campaign.acum_cost %></td>
+    <td><%= campaign.customer_id %></td>
+    <td><%= campaign.campaign_code %></td>
+    <td><%= campaign.approval_process_id %></td>
+    <td><%= campaign.client_id %></td>
+    <td><%= link_to 'Show', campaign %></td>
+    <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
+    <td><%= link_to 'Destroy', campaign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Customer campaign', new_campaign_path %>

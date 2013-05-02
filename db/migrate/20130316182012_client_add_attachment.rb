@@ -1,9 +1,11 @@
 class ClientAddAttachment < ActiveRecord::Migration
   def up
-  	add_attachment :clients, :avatar
+  	change_table :clients do |t|
+  		t.has_attached_file :avatar
+  	end
   end
 
   def down
-  	remove_attachment :clients, :avatar
+  	drop_attached_file :clients, :avatar
   end
 end

@@ -5,4 +5,5 @@ class Client < ActiveRecord::Base
   validates_attachment_presence :avatar
 
   has_many :customers
+  has_many :approval_processes
 end

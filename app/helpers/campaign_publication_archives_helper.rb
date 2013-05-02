@@ -1,0 +1,2 @@
+module CampaignPublicationArchivesHelper
+end

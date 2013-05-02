@@ -1,0 +1,93 @@
+<script type="text/javascript">
+  function showEditTitle(){
+    $("#edit-title-button-div").fadeOut(500, function(){
+      $("#edit-title-div").fadeIn(500);
+    });
+  }
+
+  function showEditBio(){
+    $("#edit-bio-button-div").fadeOut(500, function(){
+      $("#edit-bio-div").fadeIn(500); 
+    });
+  }
+
+  function approvePub(){
+    $("#approval_decision").val('approve');
+    document.forms[0].submit();
+  }
+
+  function rejectPub(){
+    $("#approval_decision").val('reject');
+    document.forms[0].submit();
+  }
+</script>
+
+<%= render :partial => 'publications/publication' %>
+<hr/>
+
+  <% if @approval.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@approval.errors.count, "error") %> prohibited this approval from being saved:</h2>
+
+      <ul>
+      <% @approval.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :publication_id %>
+  <%= f.hidden_field :decision %>
+
+  <div class="control-group">
+    <%= f.label :observations, :class=>"control-label" %>
+    <div class="controls">
+      <%= f.text_area :observations, :class=>"m-wrap large", :placeholder=>"Observations Found", :rows=> 5, :cols => 10 %>
+    </div>
+  </div>
+
+
+  <div class="control-group" id="edit-title-button-div">
+    <div class="controls">
+      <button type="button" onclick="showEditTitle()" class="btn large green">
+        Edit Title
+      </button>
+    </div>
+  </div>
+
+  <div class="control-group" style="display:none" id="edit-title-div">
+    <%= f.label :pub_title_quick_edit, :class=>"control-label" %>
+    <div class="controls">
+      <%= f.text_field :pub_title_quick_edit, :class=>"m-wrap large" %>
+    </div>
+  </div>
+
+  <div class="control-group" id="edit-bio-button-div">
+    <div class="controls">
+      <button type="button" onclick="showEditBio()" class="btn large green">
+        Edit Bio
+      </button>
+    </div>
+  </div>
+
+  <div class="control-group" style="display:none" id="edit-bio-div">
+    <%= f.label :pub_bio_quick_edit, :class=>"control-label" %>
+    <div class="controls">
+      <%= f.text_area :pub_bio_quick_edit, :class=>"m-wrap large", :rows=> 5, :cols => 10 %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <% if @approval.decision.nil? or @approval.decision == 'approve' %>
+      <%= content_tag :button, :type=>"button", :class=>"btn green", :onclick => 'approvePub()' do %>
+        Approve
+      <% end %>
+    <% end %>
+    <% if @approval.decision.nil? or @approval.decision == 'reject' %>
+      <%= content_tag :button, :type=>"button", :class=>"btn red", :onclick => 'rejectPub()' do %>
+        Reject
+      <% end %>
+    <% end %>
+    <%= link_to 'Back', customers_path, :class=>"btn" %>
+  </div>

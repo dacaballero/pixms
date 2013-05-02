@@ -1,20 +1,49 @@
 Pixms::Application.routes.draw do
-  resources :customer_contacts
-
+  
+  resources :clients do
+    resources :approval_processes
+    resources :publication_statuses
+    resources :publication_types
+    resources :contact_categories
+  end
+  
+  resources :approval_processes
+  resources :publication_statuses
+  resources :publication_types
   resources :contact_categories
 
-  resources :customers
+
+  resources :campaign_publication_archives
+
+  resources :customer_contacts
+
+  resources :customers do 
+    resources :campaigns
+  end
+
+  resources :campaigns do
+    resources :publications
+  end
+
+  resources :approvals
+  resources :comments
+
+  resources :publications do
+    resources :approvals
+    resources :comments
+  end
 
   resources :user_profiles
 
   get "dashboard/show"
 
-  resources :clients
+  resources :dashboards
 
   devise_for :users
 
   root :to => 'static_pages#home'
 
+  match ':controller/:action'
   match ':controller/:action/:user_id'
 
 

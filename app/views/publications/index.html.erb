@@ -1,0 +1,45 @@
+<h1>Listing campaign_publications</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Code</th>
+    <th>Pub bio</th>
+    <th>Description</th>
+    <th>Version</th>
+    <th>Pub title</th>
+    <th>Pub image</th>
+    <th>Publication type</th>
+    <th>Current approver</th>
+    <th>Publication status</th>
+    <th>Date final approved</th>
+    <th>Pub date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @publications.each do |publication| %>
+  <tr>
+    <td><%= publication.name %></td>
+    <td><%= publication.code %></td>
+    <td><%= publication.pub_bio %></td>
+    <td><%= publication.description %></td>
+    <td><%= publication.version %></td>
+    <td><%= publication.pub_title %></td>
+    <td><%= publication.pub_image %></td>
+    <td><%= publication.publication_type_id %></td>
+    <td><%= publication.current_approver %></td>
+    <td><%= publication.publication_status_id %></td>
+    <td><%= publication.date_final_approved %></td>
+    <td><%= publication.pub_date %></td>
+    <td><%= link_to 'Show', publication %></td>
+    <td><%= link_to 'Edit', edit_publication_path(publication) %></td>
+    <td><%= link_to 'Destroy', publication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Campaign publication', new_publication_path %>

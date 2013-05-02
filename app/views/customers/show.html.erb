@@ -1,4 +1,11 @@
+<% title(@customer.name) %>
+<% subtitle('Customer')%>
+
 <p id="notice"><%= notice %></p>
+
+<div class="row-fluid">
+	<%= render :partial => 'campaign_selection' %>
+</div>
 
 <p>
   <b>Name:</b>

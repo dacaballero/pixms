@@ -1,0 +1,70 @@
+<%= nested_form_for(@approval_process) do |f| %>
+  <% if @approval_process.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@approval_process.errors.count, "error") %> prohibited this approval_process from being saved:</h2>
+
+      <ul>
+      <% @approval_process.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :name, :class=>"control-label" %>
+    <div class="controls">
+      <%= f.text_field :name, :class=>"m-wrap medium", :placeholder=>"Approval Process Name" %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :rejected_status_id, :class=>"control-label" %>
+    <div class="controls">
+      <%= f.collection_select(:rejected_status_id, PublicationStatus.find(:all, :conditions => {:client_id => session[:client_id]}), :id, :name) %>
+    </div>
+  </div>
+
+  <div class="portlet">
+      <div class="portlet-title">
+        <h4>Approvers</h4>
+      </div>
+      <div class="portlet-body">
+      <%= f.fields_for :approval_process_details do |detail| %>
+        <blockquote>
+          <div class="control-group">
+            <%= detail.label :user_id, :class=>"control-label" %>
+            <div class="controls">
+              <%= detail.collection_select(:user_id, @possible_users, :id, :email) %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= detail.label :publication_status_id, :class=>"control-label" %>
+            <div class="controls">
+              <%= detail.collection_select(:publication_status_id, PublicationStatus.find(:all, :conditions => {:client_id => session[:client_id]}), :id, :name) %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= detail.label :approval_order, :class=>"control-label" %>
+            <div class="controls">
+              <%= detail.text_field :approval_order, :class=>'m-wrap small' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= detail.label :is_final, :class=>"control-label" %>
+            <div class="controls">
+              <%= detail.check_box  :is_final %>
+            </div>
+          </div>
+          <div><%= detail.link_to_remove "Remove Approver" %></div> 
+        </blockquote>
+      <% end %>
+      <p><%= f.link_to_add "Add an Approver", :approval_process_details %></p>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :type=>"submit", :class=>"btn green" %>
+    <%= link_to 'Back', customers_path, :class=>"btn" %>
+  </div>
+<% end %>

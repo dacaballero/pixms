@@ -4,7 +4,7 @@ class CreateCustomers < ActiveRecord::Migration
       t.string :name
       t.string :code
       t.string :maincontact
-      t.attachment :avatar
+      t.has_attached_file :avatar
       t.integer :client_id
 
       t.timestamps

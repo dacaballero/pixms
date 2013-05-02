@@ -1,0 +1,35 @@
+<div class="portlet">
+	<div class="portlet-header">
+		<h4>Customer List</h4>
+	</div>
+	<div class="row-fluid profile">
+		<% @customers.each do |customer| %>
+			<div class="row-fluid portfolio-block">
+				<div class="span5 portfolio-text">
+					<%= image_tag customer.avatar.url(:small) %>
+					<div class="portfolio-text-info">
+						<h4><%= customer.name %></h4>
+						<p><%= customer.maincontact %></p>
+					</div>
+				</div>
+				<div class="span5">
+					<div class="portfolio-info">
+						Join Date
+						<span><%= 'Jul 4' %></span>
+					</div>
+					<div class="portfolio-info">
+						Campaigns
+						<span><%= customer.campaigns.count %></span>
+					</div>
+					<div class="portfolio-info">
+						Next Pub
+						<span>Aug 10</span>
+					</div>
+				</div>
+				<div class="span2 portfolio-btn">
+					<%= link_to raw('<span>Ver</span>'), customer, :class => 'btn bigicn-only' %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

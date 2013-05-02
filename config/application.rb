@@ -1,11 +1,14 @@
 require File.expand_path('../boot', __FILE__)
 
 # Pick the frameworks you want:
+require 'pry'
+require 'devise'
 require "active_record/railtie"
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
 require "sprockets/railtie"
+
 # require "rails/test_unit/railtie"
 
 if defined?(Bundler)
@@ -23,6 +26,7 @@ module Pixms
     #config.paperclip_defaults = {:storage => :fog, :fog_credentials => {:provider => "Local", :local_root => "#{Rails.root}/public"}, :fog_directory => "", :fog_host => "localhost"}
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
+    config.action_controller.relative_url_root = "/home/pixelaba/pixms"
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -66,11 +70,11 @@ module Pixms
     config.assets.version = '1.0'
 
     config.to_prepare do
-      Devise::SessionsController.layout "devise"
-      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "devise" }
-      Devise::ConfirmationsController.layout "devise"
-      Devise::UnlocksController.layout "devise"            
-      Devise::PasswordsController.layout "devise"        
+      #Devise::SessionsController.layout "devise"
+      #Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "devise" }
+      #Devise::ConfirmationsController.layout "devise"
+      #Devise::UnlocksController.layout "devise"            
+      #Devise::PasswordsController.layout "devise"        
     end
   end
 end

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @approval_process.name %>
+</p>
+
+<p>
+  <b>Client:</b>
+  <%= @approval_process.client_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_approval_process_path(@approval_process) %> |
+<%= link_to 'Back', approval_processes_path %>

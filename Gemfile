@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
 gem 'devise'
+gem 'mysql2'
+gem 'sqlite3'
+gem 'execjs'
+gem 'therubyracer'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -11,20 +15,16 @@ gem 'libv8', '3.11.8.0'
 gem "rails-backbone"
 gem 'rb-readline'
 gem "simple-navigation"
-gem "paperclip", "~> 3.0"
+gem "paperclip", "~> 2.7"
 gem "cocaine", "=0.3.2"
-gem 'carmen-rails', '~> 1.0.0.beta3'
 gem "nested_form"
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'rspec-rails'
-	gem 'capybara'
 	gem 'database_cleaner'
 	gem 'jasmine'
-	gem 'factory_girl_rails'
   gem 'guard-rspec'
-  gem 'database_cleaner'
+  gem 'rubyception'
 end
 
 # Gems used only for assets and not required
