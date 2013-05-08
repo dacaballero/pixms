@@ -27,7 +27,7 @@
         </td>
       </tr>
       <tr>
-        <td><%= link_to 'Approve', new_publication_approval_path(@publication, {:decision => 'approve'}) %></td>
+        <td><%= url_for 'Approve', new_publication_approval_path(@publication, {:decision => 'approve'}) %></td>
         <td><%= link_to 'Reject', new_publication_approval_path(@publication, {:decision => 'reject'}) %></td>
       </tr>
     </table>

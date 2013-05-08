@@ -1,52 +1,52 @@
 Pixms::Application.routes.draw do
-
-  resources :clients do
+  scope "/pixms" do 
+    resources :clients do
+      resources :approval_processes
+      resources :publication_statuses
+      resources :publication_types
+      resources :contact_categories
+    end
+    
     resources :approval_processes
     resources :publication_statuses
     resources :publication_types
     resources :contact_categories
-  end
-  
-  resources :approval_processes
-  resources :publication_statuses
-  resources :publication_types
-  resources :contact_categories
 
 
-  resources :campaign_publication_archives
+    resources :campaign_publication_archives
 
-  resources :customer_contacts
+    resources :customer_contacts
 
-  resources :customers do 
-    resources :campaigns
-  end
+    resources :customers do 
+      resources :campaigns
+    end
 
-  resources :campaigns do
-    resources :publications
-  end
+    resources :campaigns do
+      resources :publications
+    end
 
-  resources :approvals
-  resources :comments
-
-  resources :publications do
     resources :approvals
     resources :comments
+
+    resources :publications do
+      resources :approvals
+      resources :comments
+    end
+
+    resources :user_profiles
+
+    get "dashboard/show"
+
+    resources :dashboards
+
+    devise_for :users, :path_prefix => 'my'
+    resources :users
+
+    root :to => 'static_pages#home'
+
+    match ':controller/:action'
+    match ':controller/:action/:user_id'
   end
-
-  resources :user_profiles
-
-  get "dashboard/show"
-
-  resources :dashboards
-
-  devise_for :users, :path_prefix => 'my'
-  resources :users
-
-  root :to => 'static_pages#home'
-
-  match ':controller/:action'
-  match ':controller/:action/:user_id'
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
