@@ -5,12 +5,11 @@ gem 'devise'
 gem 'mysql2'
 gem 'sqlite3'
 gem 'execjs'
-gem 'therubyracer'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'libv8', '3.11.8.0'
+gem 'libv8', '3.3.10.4'
 
 gem "rails-backbone"
 gem 'rb-readline'
@@ -31,7 +30,7 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
+  gem 'therubyracer', '0.10.2'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
