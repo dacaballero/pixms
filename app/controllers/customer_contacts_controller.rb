@@ -6,7 +6,7 @@ class CustomerContactsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @customer_contacts }
+      format.json { render :json => @customer_contacts }
     end
   end
 
@@ -17,7 +17,7 @@ class CustomerContactsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @customer_contact }
+      format.json { render :json => @customer_contact }
     end
   end
 
@@ -28,7 +28,7 @@ class CustomerContactsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @customer_contact }
+      format.json { render :json => @customer_contact }
     end
   end
 
@@ -44,11 +44,11 @@ class CustomerContactsController < ApplicationController
 
     respond_to do |format|
       if @customer_contact.save
-        format.html { redirect_to @customer_contact, notice: 'Customer contact was successfully created.' }
-        format.json { render json: @customer_contact, status: :created, location: @customer_contact }
+        format.html { redirect_to @customer_contact, :notice => 'Customer contact was successfully created.' }
+        format.json { render :json => @customer_contact, :status => :created, :location => @customer_contact }
       else
-        format.html { render action: "new" }
-        format.json { render json: @customer_contact.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @customer_contact.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +60,11 @@ class CustomerContactsController < ApplicationController
 
     respond_to do |format|
       if @customer_contact.update_attributes(params[:customer_contact])
-        format.html { redirect_to @customer_contact, notice: 'Customer contact was successfully updated.' }
+        format.html { redirect_to @customer_contact, :notice => 'Customer contact was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @customer_contact.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @customer_contact.errors, :status => :unprocessable_entity }
       end
     end
   end
