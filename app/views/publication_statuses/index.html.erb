@@ -13,7 +13,7 @@
     <td><%= publication_status.name %></td>
     <td><%= link_to 'Show', publication_status %></td>
     <td><%= link_to 'Edit', edit_publication_status_path(publication_status) %></td>
-    <td><%= link_to 'Destroy', publication_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', publication_status, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

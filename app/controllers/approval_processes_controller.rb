@@ -6,7 +6,7 @@ class ApprovalProcessesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @approval_processes }
+      format.json { render :json => @approval_processes }
     end
   end
 
@@ -17,7 +17,7 @@ class ApprovalProcessesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @approval_process }
+      format.json { render :json => @approval_process }
     end
   end
 
@@ -29,7 +29,7 @@ class ApprovalProcessesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @approval_process }
+      format.json { render :json => @approval_process }
     end
   end
 
@@ -47,11 +47,11 @@ class ApprovalProcessesController < ApplicationController
 
     respond_to do |format|
       if @approval_process.save
-        format.html { redirect_to @approval_process, notice: 'Approval process was successfully created.' }
-        format.json { render json: @approval_process, status: :created, location: @approval_process }
+        format.html { redirect_to @approval_process, :notice => 'Approval process was successfully created.' }
+        format.json { render :json => @approval_process, :status => :created, :location => @approval_process }
       else
-        format.html { render action: "new" }
-        format.json { render json: @approval_process.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @approval_process.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -63,11 +63,11 @@ class ApprovalProcessesController < ApplicationController
 
     respond_to do |format|
       if @approval_process.update_attributes(params[:approval_process])
-        format.html { redirect_to @approval_process, notice: 'Approval process was successfully updated.' }
+        format.html { redirect_to @approval_process, :notice => 'Approval process was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @approval_process.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @approval_process.errors, :status => :unprocessable_entity }
       end
     end
   end

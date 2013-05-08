@@ -2,11 +2,11 @@ class PublicationTypesController < ApplicationController
   # GET /publication_types
   # GET /publication_types.json
   def index
-    @publication_types = PublicationType.find(:all, :conditions => {:client_id = session[:client_id]})
+    @publication_types = PublicationType.find(:all, :conditions => {:client_id => session[:client_id]})
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @publication_types }
+      format.json { render :json => @publication_types }
     end
   end
 
@@ -17,7 +17,7 @@ class PublicationTypesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @publication_type }
+      format.json { render :json => @publication_type }
     end
   end
 
@@ -28,7 +28,7 @@ class PublicationTypesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @publication_type }
+      format.json { render :json => @publication_type }
     end
   end
 
@@ -45,11 +45,11 @@ class PublicationTypesController < ApplicationController
 
     respond_to do |format|
       if @publication_type.save
-        format.html { redirect_to @publication_type, notice: 'Publication type was successfully created.' }
-        format.json { render json: @publication_type, status: :created, location: @publication_type }
+        format.html { redirect_to @publication_type, :notice => 'Publication type was successfully created.' }
+        format.json { render :json => @publication_type, :status => :created, :location => @publication_type }
       else
-        format.html { render action: "new" }
-        format.json { render json: @publication_type.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @publication_type.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -61,11 +61,11 @@ class PublicationTypesController < ApplicationController
 
     respond_to do |format|
       if @publication_type.update_attributes(params[:publication_type])
-        format.html { redirect_to @publication_type, notice: 'Publication type was successfully updated.' }
+        format.html { redirect_to @publication_type, :notice => 'Publication type was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @publication_type.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @publication_type.errors, :status => :unprocessable_entity }
       end
     end
   end

@@ -6,7 +6,7 @@ class PublicationStatusesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @publication_statuses }
+      format.json { render :json => @publication_statuses }
     end
   end
 
@@ -17,7 +17,7 @@ class PublicationStatusesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @publication_status }
+      format.json { render :json => @publication_status }
     end
   end
 
@@ -28,7 +28,7 @@ class PublicationStatusesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @publication_status }
+      format.json { render :json => @publication_status }
     end
   end
 
@@ -45,11 +45,11 @@ class PublicationStatusesController < ApplicationController
 
     respond_to do |format|
       if @publication_status.save
-        format.html { redirect_to @publication_status, notice: 'Publication status was successfully created.' }
-        format.json { render json: @publication_status, status: :created, location: @publication_status }
+        format.html { redirect_to @publication_status, :notice => 'Publication status was successfully created.' }
+        format.json { render :json => @publication_status, :status => :created, :location => @publication_status }
       else
-        format.html { render action: "new" }
-        format.json { render json: @publication_status.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @publication_status.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -61,11 +61,11 @@ class PublicationStatusesController < ApplicationController
 
     respond_to do |format|
       if @publication_status.update_attributes(params[:publication_status])
-        format.html { redirect_to @publication_status, notice: 'Publication status was successfully updated.' }
+        format.html { redirect_to @publication_status, :notice => 'Publication status was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @publication_status.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @publication_status.errors, :status => :unprocessable_entity }
       end
     end
   end

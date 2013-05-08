@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.11'
 gem 'devise'
 gem 'mysql2'
 gem 'sqlite3'
@@ -15,7 +15,7 @@ gem 'libv8', '3.11.8.0'
 gem "rails-backbone"
 gem 'rb-readline'
 gem "simple-navigation"
-gem "paperclip", "~> 2.7"
+gem "paperclip", "=2.7"
 gem "cocaine", "=0.3.2"
 gem "nested_form"
 
@@ -24,7 +24,6 @@ group :development, :test do
 	gem 'database_cleaner'
 	gem 'jasmine'
   gem 'guard-rspec'
-  gem 'rubyception'
 end
 
 # Gems used only for assets and not required

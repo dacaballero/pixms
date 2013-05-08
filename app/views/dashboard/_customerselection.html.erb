@@ -6,7 +6,7 @@
 		<% @customers.each do |customer| %>
 			<div class="row-fluid portfolio-block">
 				<div class="span5 portfolio-text">
-					<%= image_tag customer.avatar.url(:small) %>
+					<%= image_tag customer.avatar.url(:medium) %>
 					<div class="portfolio-text-info">
 						<h4><%= customer.name %></h4>
 						<p><%= customer.maincontact %></p>

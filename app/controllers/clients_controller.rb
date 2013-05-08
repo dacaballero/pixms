@@ -7,7 +7,7 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @clients }
+      format.json { render :json => @clients }
     end
   end
 
@@ -18,7 +18,7 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @client }
+      format.json { render :json => @client }
     end
   end
 
@@ -34,11 +34,11 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.save
-        format.html { redirect_to clients_url, notice: 'Client was successfully created.' }
-        format.json { render json: @client, status: :created, location: @client }
+        format.html { redirect_to clients_url, :notice => 'Client was successfully created.' }
+        format.json { render :json => @client, :status => :created, :location => @client }
       else
-        format.html { render action: "new" }
-        format.json { render json: @client.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @client.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -50,11 +50,11 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.update_attributes(params[:client])
-        format.html { redirect_to clients_url, notice: 'Client was successfully updated.' }
+        format.html { redirect_to clients_url,   'Client was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @client.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @client.errors, :status => :unprocessable_entity }
       end
     end
   end

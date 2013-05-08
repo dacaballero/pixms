@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423010022) do
+ActiveRecord::Schema.define(:version => 20130508014353) do
 
   create_table "approval_process_details", :force => true do |t|
     t.integer  "approval_process_id"
@@ -57,13 +56,14 @@ ActiveRecord::Schema.define(:version => 20130423010022) do
     t.decimal  "acum_cost"
     t.integer  "customer_id"
     t.string   "campaign_code"
+    t.integer  "approval_flow_id"
     t.integer  "client_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.string   "avatar_file_name"
+    t.datetime "avatar_updated_at"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.integer  "approval_process_id"
   end
 
@@ -78,9 +78,9 @@ ActiveRecord::Schema.define(:version => 20130423010022) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.string   "avatar_file_name"
+    t.datetime "avatar_updated_at"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.text     "welcome_text"
   end
 
@@ -118,9 +118,9 @@ ActiveRecord::Schema.define(:version => 20130423010022) do
     t.string   "code"
     t.string   "maincontact"
     t.string   "avatar_file_name"
+    t.datetime "avatar_updated_at"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.integer  "client_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
@@ -135,9 +135,9 @@ ActiveRecord::Schema.define(:version => 20130423010022) do
     t.integer  "version"
     t.string   "pub_title"
     t.string   "pub_image_file_name"
+    t.datetime "pub_image_updated_at"
     t.string   "pub_image_content_type"
     t.integer  "pub_image_file_size"
-    t.datetime "pub_image_updated_at"
     t.integer  "publication_type_id"
     t.string   "current_approver"
     t.integer  "publication_status_id"
@@ -178,9 +178,9 @@ ActiveRecord::Schema.define(:version => 20130423010022) do
     t.integer  "version"
     t.string   "pub_title"
     t.string   "pub_image_file_name"
+    t.datetime "pub_image_updated_at"
     t.string   "pub_image_content_type"
     t.integer  "pub_image_file_size"
-    t.datetime "pub_image_updated_at"
     t.integer  "publication_type_id"
     t.string   "current_approver"
     t.integer  "publication_status_id"
@@ -213,9 +213,9 @@ ActiveRecord::Schema.define(:version => 20130423010022) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "avatar_file_name"
+    t.datetime "avatar_updated_at"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.date     "birthdate"
     t.string   "country"
     t.text     "address"

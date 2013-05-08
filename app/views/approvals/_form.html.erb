@@ -13,7 +13,7 @@
 
   function approvePub(){
     $("#approval_decision").val('approve');
-    document.forms[0].submit();
+    
   }
 
   function rejectPub(){
@@ -80,7 +80,7 @@
 
   <div class="form-actions">
     <% if @approval.decision.nil? or @approval.decision == 'approve' %>
-      <%= content_tag :button, :type=>"button", :class=>"btn green", :onclick => 'approvePub()' do %>
+      <%= content_tag :button, :type=>"submit", :class=>"btn green", :onclick => 'approvePub()' do %>
         Approve
       <% end %>
     <% end %>

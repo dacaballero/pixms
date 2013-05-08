@@ -5,7 +5,7 @@ class ChangeApprovalFieldCustomerCampaign < ActiveRecord::Migration
   end
 
   def down
-  	remove_column :campaigns, :approval_process_id
-  	add_column :campaigns, :approval_flow_id, :integer
+  	#remove_column :campaigns, :approval_process_id
+  	#add_column :campaigns, :approval_flow_id, :integer
   end
 end

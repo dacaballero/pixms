@@ -6,7 +6,7 @@ class ApprovalsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @approvals }
+      format.json { render :json => @approvals }
     end
   end
 
@@ -17,7 +17,7 @@ class ApprovalsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @approval }
+      format.json { render :json => @approval }
     end
   end
 
@@ -36,7 +36,7 @@ class ApprovalsController < ApplicationController
     
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @approval }
+      format.json { render :json => @approval }
     end
   end
 
@@ -50,8 +50,8 @@ class ApprovalsController < ApplicationController
   def create
     @approval = Approval.new(params[:approval])
     @publication = Publication.find(@approval.publication_id)
-    approval_process_detail = @publication.approval_process.approval_process_details.find(:first, :condition => {:publication_status_id => @publication.publication_status_id})
-    new_process_detail = @publication.approval_process.approval_process_details.find(:first, :condition => {:approval_order => approval_process_detail.approval_order + 1})
+    approval_process_detail = @publication.approval_process.approval_process_details.find(:first, :conditions => {:publication_status_id => @publication.publication_status_id})
+    new_process_detail = @publication.approval_process.approval_process_details.find(:first, :conditions => {:approval_order => approval_process_detail.approval_order + 1})
     if (!new_process_detail.is_final)
       #Is not final load next status
       @publication.publication_status_id = new_process_detail.publication_status_id
@@ -74,11 +74,11 @@ class ApprovalsController < ApplicationController
           ApprovalMailer.email_approval_creator(@publication, @approval).deliver
         end
 
-        format.html { redirect_to @approval, notice: 'Approval was successfully created.' }
-        format.json { render json: @approval, status: :created, location: @approval }
+        format.html { redirect_to @approval, :notice => 'Approval was successfully created.' }
+        format.json { render :json => @approval, :status => :created, :location => @approval }
       else
-        format.html { render action: "new" }
-        format.json { render json: @approval.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @approval.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -90,11 +90,11 @@ class ApprovalsController < ApplicationController
 
     respond_to do |format|
       if @approval.update_attributes(params[:approval])
-        format.html { redirect_to @approval, notice: 'Approval was successfully updated.' }
+        format.html { redirect_to @approval, :notice => 'Approval was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @approval.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @approval.errors, :status => :unprocessable_entity }
       end
     end
   end

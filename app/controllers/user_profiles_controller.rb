@@ -23,8 +23,8 @@ class UserProfilesController < ApplicationController
         format.html { redirect_to edit_user_profile_path(@user_profile), :notice => 'The user profile was updated successfully!' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @user_profile.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @user_profile.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -36,7 +36,7 @@ class UserProfilesController < ApplicationController
       sign_in  @user , :bypass => true
       redirect_to edit_user_profile_path(@user.user_profile), :notice => 'The user password was updated successfully!'
     else
-      render action: "edit", :id => @user.user_profile.id
+      render :action => "edit", :id => @user.user_profile.id
     end
   end
 end

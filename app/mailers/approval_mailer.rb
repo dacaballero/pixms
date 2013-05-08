@@ -1,5 +1,5 @@
 class ApprovalMailer < ActionMailer::Base
-  	default from: "approvals@pixelabapps.com"
+  	default :from => "approvals@pixelabapps.com"
 
 	def email_next_approver(publication)
 	  	@publication = publication

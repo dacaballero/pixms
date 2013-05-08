@@ -6,7 +6,7 @@ class CampaignsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @campaigns }
+      format.json { render :json => @campaigns }
     end
   end
 
@@ -17,7 +17,7 @@ class CampaignsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @campaign }
+      format.json { render :json => @campaign }
     end
   end
 
@@ -31,7 +31,7 @@ class CampaignsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @campaign }
+      format.json { render :json => @campaign }
     end
   end
 
@@ -51,11 +51,11 @@ class CampaignsController < ApplicationController
 
     respond_to do |format|
       if @campaign.save
-        format.html { redirect_to @campaign, notice: 'Customer campaign was successfully created.' }
-        format.json { render json: @campaign, status: :created, location: @campaign }
+        format.html { redirect_to @campaign, :notice => 'Customer campaign was successfully created.' }
+        format.json { render :json => @campaign, :status => :created, :location => @campaign }
       else
-        format.html { render action: "new" }
-        format.json { render json: @campaign.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @campaign.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -67,11 +67,11 @@ class CampaignsController < ApplicationController
 
     respond_to do |format|
       if @campaign.update_attributes(params[:campaign])
-        format.html { redirect_to @campaign, notice: 'Customer campaign was successfully updated.' }
+        format.html { redirect_to @campaign, :notice => 'Customer campaign was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @campaign.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @campaign.errors, :status => :unprocessable_entity }
       end
     end
   end

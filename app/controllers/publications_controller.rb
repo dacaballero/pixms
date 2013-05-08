@@ -6,7 +6,7 @@ class PublicationsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @publications }
+      format.json { render :json => @publications }
     end
   end
 
@@ -18,7 +18,7 @@ class PublicationsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @publication }
+      format.json { render :json => @publication }
     end
   end
 
@@ -31,7 +31,7 @@ class PublicationsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @publication }
+      format.json { render :json => @publication }
     end
   end
 
@@ -61,11 +61,11 @@ class PublicationsController < ApplicationController
 
         ApprovalMailer.email_next_approver(@publication).deliver
 
-        format.html { redirect_to @publication, notice: 'Campaign publication was successfully created.' }
-        format.json { render json: @publication, status: :created, location: @publication }
+        format.html { redirect_to @publication, :notice => 'Campaign publication was successfully created.' }
+        format.json { render :json => @publication, :status => :created, :location => @publication }
       else
-        format.html { render action: "new" }
-        format.json { render json: @publication.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @publication.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -82,11 +82,11 @@ class PublicationsController < ApplicationController
 
     respond_to do |format|
       if @publication.update_attributes(params[:publication])
-        format.html { redirect_to @publication, notice: 'Campaign publication was successfully updated.' }
+        format.html { redirect_to @publication, :notice => 'Campaign publication was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @publication.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @publication.errors, :status => :unprocessable_entity }
       end
     end
   end
