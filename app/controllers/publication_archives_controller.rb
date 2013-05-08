@@ -6,7 +6,7 @@ class PublicationArchivesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @campaign_publication_archives }
+      format.json { render :json => @campaign_publication_archives }
     end
   end
 
@@ -17,7 +17,7 @@ class PublicationArchivesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @publication_archive }
+      format.json { render :json => @publication_archive }
     end
   end
 
@@ -28,7 +28,7 @@ class PublicationArchivesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @publication_archive }
+      format.json { render :json => @publication_archive }
     end
   end
 
@@ -44,11 +44,11 @@ class PublicationArchivesController < ApplicationController
 
     respond_to do |format|
       if @publication_archive.save
-        format.html { redirect_to @publication_archive, notice: 'Campaign publication archive was successfully created.' }
-        format.json { render json: @publication_archive, status: :created, location: @publication_archive }
+        format.html { redirect_to @publication_archive, :notice => 'Campaign publication archive was successfully created.' }
+        format.json { render :json => @publication_archive, :status => :created, :location => @publication_archive }
       else
-        format.html { render action: "new" }
-        format.json { render json: @publication_archive.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @publication_archive.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +60,11 @@ class PublicationArchivesController < ApplicationController
 
     respond_to do |format|
       if @publication_archive.update_attributes(params[:publication_archive])
-        format.html { redirect_to @publication_archive, notice: 'Campaign publication archive was successfully updated.' }
+        format.html { redirect_to @publication_archive, :notice => 'Campaign publication archive was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @publication_archive.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @publication_archive.errors, :status => :unprocessable_entity }
       end
     end
   end
