@@ -39,13 +39,15 @@ Pixms::Application.routes.draw do
 
     resources :dashboards
 
-    devise_for :users, :path_prefix => '/pixms/my'
+    devise_for :users, :path_prefix => '/my'
     resources :users
 
     root :to => 'static_pages#home'
 
     match ':controller/:action'
     match ':controller/:action/:user_id'
+
+    get "assets/"
   end
 
   # The priority is based upon order of creation:
