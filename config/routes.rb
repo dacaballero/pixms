@@ -47,7 +47,6 @@ Pixms::Application.routes.draw do
     match ':controller/:action'
     match ':controller/:action/:user_id'
 
-    get "assets/"
   end
 
   # The priority is based upon order of creation:
