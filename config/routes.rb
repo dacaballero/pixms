@@ -39,6 +39,7 @@ Pixms::Application.routes.draw do
 
     resources :dashboards
 
+    devise_for :users, :path_prefix => '/my'
     resources :users
 
     root :to => 'static_pages#home'
@@ -48,7 +49,6 @@ Pixms::Application.routes.draw do
 
   end
 
-  devise_for :users, :path_prefix => '/my'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
