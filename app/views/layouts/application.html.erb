@@ -138,7 +138,7 @@
 					<li class="dropdown user">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<img alt="" src="<%= !current_user.user_profile.nil? and !current_user.user_profile.avatar.file? ? '/assets/avatar1_small.jpg' : current_user.user_profile.avatar.url(:thumbnail) %>" />
-						<span class="username"><%= !current_user.user_profile.nil? ? current_user.user_profile.name : current_user.email %></span>
+						<span class="username"><%= !current_user.nil? and !current_user.user_profile.nil? ? current_user.user_profile.name : current_user.email %></span>
 						<i class="icon-angle-down"></i>
 						</a>
 						<ul class="dropdown-menu">
