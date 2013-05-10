@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
   # GET /clients
   # GET /clients.json
   def index
