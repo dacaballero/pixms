@@ -11,7 +11,7 @@
       </tr>
       <tr>
         <td style="width: 50%">
-          <%= image_tag @publication.pub_image.url() %>
+          <%= image_tag "#{request.protocol}#{request.host_with_port}#{@publication.pub_image.url()}" %>
         </td>
         <td>
           <table>
@@ -27,8 +27,7 @@
         </td>
       </tr>
       <tr>
-        <td><%= url_for 'Approve', new_publication_approval_path(@publication, {:decision => 'approve'}) %></td>
-        <td><%= link_to 'Reject', new_publication_approval_path(@publication, {:decision => 'reject'}) %></td>
+        <td><%= link_to('Approve', new_publication_approval_path(@publication, :only_path => false)) %></td>
       </tr>
     </table>
 
