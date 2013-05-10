@@ -39,8 +39,9 @@ Pixms::Application.routes.draw do
 
     resources :dashboards
 
-    devise_for :users, :path_prefix => '/my'
-    resources :users
+    devise_for :users
+    #, :path_prefix => '/my'
+    #resources :users
 
     root :to => 'static_pages#home'
 
