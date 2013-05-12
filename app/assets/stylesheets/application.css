@@ -20,3 +20,8 @@
 //= require css/style_default
 //= require bootstrap/css/bootstrap-responsive
 //= require bootstrap-fileupload/bootstrap-fileupload
+//= require bootstrap-datepicker/css/datepicker
+//= require bootstrap-daterangepicker/daterangepicker
+//= require fullcalendar/fullcalendar/bootstrap-fullcalendar
+//= require uniform/css/uniform.default
+//= require data-tables/DT_bootstrap
