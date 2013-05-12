@@ -14,7 +14,30 @@
 //= require jquery_ujs
 //= require_tree .
 //= require jquery_nested_form
-
+//= require breakpoints/breakpoints
+//= require js/jquery-1.8.3.min
+//= require jquery-ui/jquery-ui-1.10.1.custom.min
+//= require jquery-slimscroll/jquery.slimscroll.min
+//= require fullcalendar/fullcalendar/fullcalendar.min
+//= require bootstrap/js/bootstrap.min
+//= require bootstrap-fileupload/bootstrap-fileupload
+//= require js/jquery.blockui
+//= require js/jquery.cookie
+//= require flot/jquery.flot
+//= require flot/jquery.flot.resize
+//= require gritter/js/jquery.gritter
+//= require uniform/jquery.uniform.min
+//= require js/jquery.pulsate.min
+//= require bootstrap-datepicker/js/bootstrap-datepicker
+//= require bootstrap-daterangepicker/date
+//= require bootstrap-daterangepicker/daterangepicker
+//= require js/app
+//= require data-tables/jquery.dataTables
+//= require data-tables/DT_bootstrap
+//= require static/js/jquery.toggle.buttons
+//= require chosen-bootstrap/chosen/chosen.jquery.min
+//= require jquery-tags-input/jquery.tagsinput.min
+//= require ckeditor/ckeditor
 function initListTable(table){
 	var oTable = table.dataTable({
 		"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
