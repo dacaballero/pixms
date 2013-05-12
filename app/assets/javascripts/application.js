@@ -34,7 +34,6 @@
 //= require js/app
 //= require data-tables/jquery.dataTables
 //= require data-tables/DT_bootstrap
-//= require static/js/jquery.toggle.buttons
 //= require chosen-bootstrap/chosen/chosen.jquery.min
 //= require jquery-tags-input/jquery.tagsinput.min
 //= require ckeditor/ckeditor
