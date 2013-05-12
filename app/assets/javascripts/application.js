@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require_tree .
 //= require jquery_nested_form
-//= require breakpoints/breakpoints
 //= require js/jquery-1.8.3.min
 //= require jquery-ui/jquery-ui-1.10.1.custom.min
 //= require jquery-slimscroll/jquery.slimscroll.min
