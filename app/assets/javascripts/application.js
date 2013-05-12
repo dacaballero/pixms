@@ -22,8 +22,6 @@
 //= require bootstrap-fileupload/bootstrap-fileupload
 //= require js/jquery.blockui
 //= require js/jquery.cookie
-//= require flot/jquery.flot
-//= require flot/jquery.flot.resize
 //= require gritter/js/jquery.gritter
 //= require uniform/jquery.uniform.min
 //= require js/jquery.pulsate.min
