@@ -1,8 +1,11 @@
 Pixms::Application.routes.draw do
   
-  devise_for :users #, :path_prefix => '/my'
+  
 
   scope "/pixms" do 
+
+    devise_for :users #, :path_prefix => '/my'
+
     resources :clients do
       resources :approval_processes
       resources :publication_statuses
