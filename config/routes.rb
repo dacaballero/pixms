@@ -1,4 +1,7 @@
 Pixms::Application.routes.draw do
+  
+  devise_for :users, :path_prefix => 'pixms/my'
+
   scope "/pixms" do 
     resources :clients do
       resources :approval_processes
@@ -36,11 +39,6 @@ Pixms::Application.routes.draw do
     resources :user_profiles
 
     resources :dashboards
-
-    devise_for :users, :path_prefix => 'pixms/my'
-    devise_scope :user do
-      get "/login" => "devise/sessions#new"
-    end
 
     resources :users
 
