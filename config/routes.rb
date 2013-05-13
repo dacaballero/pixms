@@ -35,8 +35,6 @@ Pixms::Application.routes.draw do
 
     resources :user_profiles
 
-    get "dashboard/show"
-
     resources :dashboards
 
     devise_for :users, :path_prefix => 'pixms/my'

@@ -76,7 +76,7 @@ class ClientsController < ApplicationController
     session[:client_id] = @client.id
     session[:client] = @client
     respond_to do |format|
-      format.html { redirect_to :controller=>"dashboard", :action=>"show" }
+      format.html { redirect_to dashboards_url }
       format.json { head :no_content }
     end
   end
