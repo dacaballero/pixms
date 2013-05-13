@@ -1,4 +1,5 @@
 class CampaignsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /customer_campaigns
   # GET /customer_campaigns.json
   def index

@@ -1,4 +1,5 @@
 class ContactCategoriesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /contact_categories
   # GET /contact_categories.json
   def index

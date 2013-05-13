@@ -1,4 +1,5 @@
 class PublicationArchivesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /campaign_publication_archives
   # GET /campaign_publication_archives.json
   def index

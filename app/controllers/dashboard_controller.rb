@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+	before_filter :authenticate_user!
   def show
   	if (session[:client_id].nil?)
   		redirect_to clients_url

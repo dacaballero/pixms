@@ -1,4 +1,5 @@
 class PublicationStatusesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /publication_statuses
   # GET /publication_statuses.json
   def index

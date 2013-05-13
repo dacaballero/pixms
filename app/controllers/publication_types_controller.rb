@@ -1,4 +1,5 @@
 class PublicationTypesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /publication_types
   # GET /publication_types.json
   def index
