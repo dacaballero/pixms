@@ -1,6 +1,6 @@
 Pixms::Application.routes.draw do
   
-  devise_for :users, :path_prefix => 'pixms/my'
+  devise_for :users #, :path_prefix => '/my'
 
   scope "/pixms" do 
     resources :clients do
@@ -40,7 +40,7 @@ Pixms::Application.routes.draw do
 
     resources :dashboards
 
-    resources :users
+    #resources :users
 
     root :to => 'static_pages#home'
 
