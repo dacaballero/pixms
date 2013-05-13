@@ -38,6 +38,10 @@ Pixms::Application.routes.draw do
     resources :dashboards
 
     devise_for :users, :path_prefix => 'pixms/my'
+    devise_scope :user do
+      get "/login" => "devise/sessions#new"
+    end
+
     resources :users
 
     root :to => 'static_pages#home'
