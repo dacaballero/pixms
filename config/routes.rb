@@ -1,9 +1,5 @@
 Pixms::Application.routes.draw do
-  
-  
-
-  #scope "/pixms" do 
-
+ 
     devise_for :users, :path_prefix => '/my'
 
     resources :clients do
@@ -50,7 +46,6 @@ Pixms::Application.routes.draw do
     match ':controller/:action'
     match ':controller/:action/:user_id'
 
-  #end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
