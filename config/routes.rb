@@ -2,9 +2,9 @@ Pixms::Application.routes.draw do
   
   
 
-  scope "/pixms" do 
+  #scope "/pixms" do 
 
-    devise_for :users #, :path_prefix => '/my'
+    devise_for :users, :path_prefix => '/my'
 
     resources :clients do
       resources :approval_processes
@@ -43,14 +43,14 @@ Pixms::Application.routes.draw do
 
     resources :dashboards
 
-    #resources :users
+    resources :users
 
     root :to => 'static_pages#home'
 
     match ':controller/:action'
     match ':controller/:action/:user_id'
 
-  end
+  #end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
