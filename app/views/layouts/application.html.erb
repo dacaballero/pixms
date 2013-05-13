@@ -150,7 +150,7 @@
 				<ul>
 					<li>
 						<div class="" id="client-logo">
-							<img alt="" src="<%= session[:client] != nil and session[:client].avatar.file? ? session[:client].avatar.url(:medium) : '' %>" />
+							<%= image_tag session[:client].avatar.url(:medium) if !session[:client].nil? %>
 						</div>
 					</li>
 					<li>
