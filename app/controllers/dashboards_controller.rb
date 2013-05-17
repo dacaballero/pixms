@@ -14,6 +14,8 @@ class DashboardsController < ApplicationController
   		redirect_to clients_url
   	end
 
+    @my_publications = Publication.find(:all, :conditions => {:designer_user_id => current_user.id}, :order => 'pub_date DESC')
+
   	@customers = Customer.find(:all, :conditions => {:client_id => session[:client_id]})
 
   end

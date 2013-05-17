@@ -1,0 +1,30 @@
+<div class="portlet">
+	<div class="portlet-header">
+		<h4>My Publications</h4>
+	</div>
+	<div class="row-fluid profile">
+		<% @my_publications.each do |publication| %>
+			<div class="row-fluid portfolio-block">
+				<div class="span5 portfolio-text">
+					<%= image_tag publication.pub_image.url(:small) %>
+					<div class="portfolio-text-info">
+						<h4><%= publication.code + ' - ' + publication.name %> <%= link_to raw('<i class="icon-pencil"></i> Edit'), edit_publication_path(publication), :class => 'btn green mini' %></h4>
+					</div>
+				</div>
+				<div class="span5">
+					<div class="portfolio-info">
+						Pub date
+						<span><%= publication.pub_date %></span>
+					</div>
+					<div class="portfolio-info">
+						Status
+						<span><%= publication.publication_status.name %></span>
+					</div>
+				</div>
+				<div class="span2 portfolio-btn">
+					<%= link_to raw('<span>Ver</span>'), publication, :class => 'btn bigicn-only' %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
