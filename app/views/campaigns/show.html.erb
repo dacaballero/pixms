@@ -2,64 +2,35 @@
 <% subtitle(@campaign.customer.name)%>
 
 <div class="row-fluid">
-  <%= render :partial => 'publication_selection' %>
+  <div class="span3">
+    <div class="portfolio-info">
+        Start Date
+        <span><%= @campaign.date_start%></span>
+    </div>
+  </div>
+  <div class="span3">
+    <div class="portfolio-info">
+        End Date
+        <span><%= @campaign.date_ent %></span>
+    </div>
+  </div>
+  <div class="span3">
+    <div class="portfolio-info">
+        Initial Budget
+        <span><%= @campaign.initial_budget %></span>
+    </div>
+  </div>
+  <div class="span3">
+    <div class="portfolio-info">
+        Current Budget
+        <span><%= @campaign.current_budget %></span>
+    </div>
+  </div>
 </div>
 
-
-<p>
-  <b>Name:</b>
-  <%= @campaign.name %>
-</p>
-
-<p>
-  <b>Date start:</b>
-  <%= @campaign.date_start %>
-</p>
-
-<p>
-  <b>Date ent:</b>
-  <%= @campaign.date_ent %>
-</p>
-
-<p>
-  <b>Is open:</b>
-  <%= @campaign.is_open %>
-</p>
-
-<p>
-  <b>Initial budget:</b>
-  <%= @campaign.initial_budget %>
-</p>
-
-<p>
-  <b>Current budget:</b>
-  <%= @campaign.current_budget %>
-</p>
-
-<p>
-  <b>Acum cost:</b>
-  <%= @campaign.acum_cost %>
-</p>
-
-<p>
-  <b>Customer:</b>
-  <%= @campaign.customer_id %>
-</p>
-
-<p>
-  <b>Campaign code:</b>
-  <%= @campaign.campaign_code %>
-</p>
-
-<p>
-  <b>Approval flow:</b>
-  <%= @campaign.approval_process_id %>
-</p>
-
-<p>
-  <b>Client:</b>
-  <%= @campaign.client_id %>
-</p>
+<div class="row-fluid">
+  <%= render :partial => 'publication_selection' %>
+</div>
 
 
 <%= link_to 'Edit', edit_campaign_path(@campaign) %> |

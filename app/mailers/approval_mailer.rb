@@ -11,11 +11,19 @@ class ApprovalMailer < ActionMailer::Base
 		@publication = publication
 		@designer = User.find(@publication.designer_user_id)
 		@creator = User.find(@publication.creator_user_id)
+
+		mail(:to => @designer.email, :subject => 'The publication needs to be reviewed')
+
+		mail(:to => @creator.email, :subject => 'Your design needs to be reviewed')
 	end
 
 	def email_approval_creator(publication, approval)
 		@publication = publication
 		@designer = User.find(@publication.designer_user_id)
 		@creator = User.find(@publication.creator_user_id)
+
+		mail(:to => @designer.email, :subject => 'The publication needs to be reviewed')
+
+		mail(:to => @creator.email, :subject => 'Your design needs to be reviewed')
 	end
 end

@@ -27,8 +27,11 @@
       <tbody>
         <% @publication.approvals.each do |approval| %>
           <tr>
-            <td>0</td>
-            <td><%= approval.user.user_profile.name %>
+            <td><%= approval.id %></td>
+            <td><%= approval.user.email %></td>
+            <td><%= approval.approval_date %></td>
+            <td><%= approval.decision %></td>
+            <td><%= approval.observations %></td>
           </tr>
         <% end %>
       </tbody>

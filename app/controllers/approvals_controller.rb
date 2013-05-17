@@ -29,7 +29,7 @@ class ApprovalsController < ApplicationController
     @approval = @publication.approvals.build
     @approval.pub_bio_quick_edit = @publication.pub_bio
     @approval.pub_title_quick_edit = @publication.pub_title
-
+    @approval.user_id = current_user.id
 
     if (!params[:decision].nil?)
       @approval.decision = params[:decision]
@@ -51,15 +51,26 @@ class ApprovalsController < ApplicationController
   def create
     @approval = Approval.new(params[:approval])
     @publication = Publication.find(@approval.publication_id)
-    approval_process_detail = @publication.approval_process.approval_process_details.find(:first, :conditions => {:publication_status_id => @publication.publication_status_id})
-    new_process_detail = @publication.approval_process.approval_process_details.find(:first, :conditions => {:approval_order => approval_process_detail.approval_order + 1})
-    if (!new_process_detail.is_final)
-      #Is not final load next status
-      @publication.publication_status_id = new_process_detail.publication_status_id
-      @publication.current_approver = new_process_detail.user.email
+    @approval_process = ApprovalProcess.find(@publication.approval_process_id)
+    approval_process_detail = @approval_process.approval_process_details.find(:first, :conditions => {:publication_status_id => @publication.publication_status_id})
+    new_process_detail = @approval_process.approval_process_details.find(:first, :conditions => {:approval_order => approval_process_detail.approval_order + 1})
+    reject_process_detail = @approval_process.rejected_status
+
+    @approval.approval_date = Time.now
+    #@aproval.user_id = current_user.id
+
+    if (@approval.decision == 'approve')
+      if (!new_process_detail.is_final)
+        #Is not final load next status
+        @publication.publication_status_id = new_process_detail.publication_status_id
+        @publication.current_approver = new_process_detail.user.email
+      else
+        @publication.date_final_approved = DateTime.now
+        @publication.publication_status_id = new_process_detail.publication_status_id
+        @publication.current_approver = ''
+      end
     else
-      @publication.date_final_approved = DateTime.now
-      @publication.publication_status_id = new_process_detail.publication_status_id
+      @publication.publication_status_id = reject_process_detail.id
       @publication.current_approver = ''
     end
 

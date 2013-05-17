@@ -8,8 +8,8 @@
 	<meta content="" name="author" />
 	
 	<link rel="shortcut icon" href="favicon.ico" />
-  	<%= stylesheet_link_tag    "application", :media => "all" %>
-  	<%= javascript_include_tag "application", :debug => false %>
+  	<%= stylesheet_link_tag    "application", :debug => true %>
+  	<%= javascript_include_tag "application", :debug => true %>
   	<%= csrf_meta_tags %>
 </head>
 <!-- body>
@@ -170,7 +170,7 @@
 						<!-- END RESPONSIVE QUICK SEARCH FORM -->
 					</li>
 					<li class="start active ">
-						<%= link_to raw('<i class="icon-home"></i><span class="title">Dashboard</span>'), :controller => 'dashboard', :action => 'show' %>
+						<%= link_to raw('<i class="icon-home"></i><span class="title">Dashboard</span>'), dashboards_path %>
 						
 						<span class="selected"></span>
 						</a>
@@ -251,10 +251,11 @@
 	</div>
 	<!-- END CONTAINER -->
 	<script>
-		jQuery(document).ready(function() {		
-			App.setPage("index");  // set current page
-			App.init(); // init the rest of plugins and elements
-		});
+	jQuery(document).ready(function() {     
+            //App.setPage("index");  // set current page
+            //App.init(); // init the rest of plugins and elements
+        });
+
 	</script>
 	<!-- BEGIN FOOTER -->
 	<div class="footer">

@@ -12,4 +12,26 @@ class Publication < ActiveRecord::Base
 
   has_many :publication_comments
   has_many :comments, :through => :publication_comments
+
+  def get_archive
+  	@archive = PublicationArchive.new
+  	@archive.code = code
+  	@archive.publication_id = id
+  	@archive.current_approver = current_approver
+  	@archive.description = description
+  	@archive.name = name
+  	@archive.pub_bio = pub_bio
+  	@archive.pub_date = pub_date
+  	@archive.pub_image = pub_image
+  	@archive.pub_title = pub_title
+  	@archive.publication_status_id = publication_status_id
+  	@archive.publication_type_id = publication_type_id
+  	@archive.version = version
+  	#@archive.approval_process_id = approval_process_id
+  	@archive.campaign_id = campaign_id
+  	#@archive.creator_user_id = creator_user_id
+  	#@archive.designer_user_id = designer_user_id
+
+  	return @archive
+  end
 end

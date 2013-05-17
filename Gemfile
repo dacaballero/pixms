@@ -17,6 +17,7 @@ gem "simple-navigation"
 gem "paperclip", "=2.7"
 gem "cocaine", "=0.3.2"
 gem "nested_form"
+gem "font-awesome-rails", '3.1.1.0'
 
 group :development, :test do
   gem 'rspec-rails'

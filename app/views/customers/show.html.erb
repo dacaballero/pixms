@@ -4,29 +4,18 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row-fluid">
+	<div class="span6">
+	</div>
+	<div class="span6">
+		<div class="span12">
+			Contact: <span class="lead"><%= @customer.maincontact %></span>
+		</div>
+	</div>
+</div>
+<br/>
+<div class="row-fluid">
 	<%= render :partial => 'campaign_selection' %>
 </div>
 
-<p>
-  <b>Name:</b>
-  <%= @customer.name %>
-</p>
-
-<p>
-  <b>Code:</b>
-  <%= @customer.code %>
-</p>
-
-<p>
-  <b>Maincontact:</b>
-  <%= @customer.maincontact %>
-</p>
-
-<p>
-  <b>Avatar:</b>
-  <%= @customer.avatar %>
-</p>
-
-
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+<%= link_to 'Back', dashboards_path %>

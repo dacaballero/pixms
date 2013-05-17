@@ -4,7 +4,7 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>The publication: <%= @publication.code %> on <%= publication.approval_status.name %>was Rejected by <%= @approval.user.email%> Please review the publication at <%= link_to @publication.code, @publication %> </h1>
+    <h1>The publication: <%= @publication.code %> on <%= @publication.publication_status.name %>was Rejected by <%= @approval.user.email%> Please review the publication at <%= link_to @publication.code, @publication %> </h1>
     <table>
       <tr>
         <td colspan="2"><%= @publication.code + " - " + @publication.name %></td>
@@ -25,6 +25,9 @@
             </tr>
           </table>
         </td>
+      </tr>
+      <tr>
+        <td><%= link_to('Publication', publications_path(@publication, :only_path => false)) %></td>
       </tr>
     </table>
 

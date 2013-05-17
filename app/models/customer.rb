@@ -1,6 +1,6 @@
 class Customer < ActiveRecord::Base
   attr_accessible :avatar, :code, :maincontact, :name, :client_id, :customer_contacts_attributes
-  has_attached_file :avatar, :styles => {:thumbnail => "86x35#", :small  => "172x70>", :medium => "258x105>"}
+  has_attached_file :avatar, :styles => {:thumbnail => "86x35#", :medium => "258x105>", :large => "516x205>"}
 
   belongs_to :client
 

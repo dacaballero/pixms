@@ -75,6 +75,8 @@ class PublicationsController < ApplicationController
   # PUT /publications/1.json
   def update
     @publication = Publication.find(params[:id])
+    @publication_archive = @publication.get_archive
+
     @publication.version = @publication.version + 1
     approval_step = @publication.approval_process.approval_process_details.find(:first, :conditions => {:approval_order => 1})
     @publication.current_approver = User.find(approval_step.user_id).email
@@ -82,7 +84,7 @@ class PublicationsController < ApplicationController
 
 
     respond_to do |format|
-      if @publication.update_attributes(params[:publication])
+      if @publication.update_attributes(params[:publication]) and @publication_archive.save
         format.html { redirect_to @publication, :notice => 'Campaign publication was successfully updated.' }
         format.json { head :no_content }
       else

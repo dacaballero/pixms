@@ -78,6 +78,8 @@
     </div>
   </div>
 
+  <%= f.text_field :user_id %>
+
   <div class="form-actions">
     <% if @approval.decision.nil? or @approval.decision == 'approve' %>
       <%= content_tag :button, :type=>"submit", :class=>"btn green", :onclick => 'approvePub()' do %>
@@ -85,7 +87,7 @@
       <% end %>
     <% end %>
     <% if @approval.decision.nil? or @approval.decision == 'reject' %>
-      <%= content_tag :button, :type=>"button", :class=>"btn red", :onclick => 'rejectPub()' do %>
+      <%= content_tag :button, :type=>"submit", :class=>"btn red", :onclick => 'rejectPub()' do %>
         Reject
       <% end %>
     <% end %>
