@@ -78,7 +78,7 @@
     </div>
   </div>
 
-  <%= f.text_field :user_id %>
+  <%= f.hidden_field :user_id %>
 
   <div class="form-actions">
     <% if @approval.decision.nil? or @approval.decision == 'approve' %>

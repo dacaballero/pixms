@@ -28,7 +28,7 @@
         <% @publication.approvals.each do |approval| %>
           <tr>
             <td><%= approval.id %></td>
-            <td><%= approval.user.email %></td>
+            <td><%= approval.user_id %></td>
             <td><%= approval.approval_date %></td>
             <td><%= approval.decision %></td>
             <td><%= approval.observations %></td>

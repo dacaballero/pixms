@@ -9,6 +9,7 @@ class ApprovalMailer < ActionMailer::Base
 
 	def email_reject_approval(publication, approval)
 		@publication = publication
+		@approval = approval
 		@designer = User.find(@publication.designer_user_id)
 		@creator = User.find(@publication.creator_user_id)
 
