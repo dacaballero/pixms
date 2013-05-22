@@ -85,6 +85,9 @@ class PublicationsController < ApplicationController
 
     respond_to do |format|
       if @publication.update_attributes(params[:publication]) and @publication_archive.save
+
+        ApprovalMailer.email_next_approver(@publication).deliver
+        
         format.html { redirect_to @publication, :notice => 'Campaign publication was successfully updated.' }
         format.json { head :no_content }
       else
