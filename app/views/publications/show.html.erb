@@ -6,6 +6,31 @@
     link_to(@publication.code, @publication)
 ) %>
 
+<script type="text/javascript">
+  function createComment(){
+    var params = {
+      comment: {note: $("#note").val(), title: '', user_id: <%= current_user.id %>},
+      publication_id: <%= @publication.id %> 
+    };
+
+    $.ajax({
+      type: "POST",
+      url: '/publication_comments',
+      data: params,
+      dataType: "json",
+      success: function(data){
+        console.log('hell yeah');
+          console.log(data);
+      },
+      error:function(data){
+      console.log(data);
+    }
+    }).fail(function(jqXHR, textStatus){
+      console.log(textStatus);
+    });
+  }
+</script>
+
 <%= render :partial => 'publication' %>
 
 <div class="clearfix"></div>
@@ -39,41 +64,39 @@
   </div>
 </div>
 
-<div class="portlet box blue">
+<!-- div class="portlet box blue">
   <div class="portlet-title">
     <h4>Comments</h4>
   </div>
   <div class="portlet-body">
     <div class="scroller" data-height="343px" data-always-visible="1" data-rail-visible1="1">
       <ul class="chats">
-        <%= @publication.comments.each do |comment| %>
+        < @publication.comments.each do |comment| >
           <li class="in">
-            <img class="avatar" alt="" src="<%= comment.user.user_profile.avatar.url(:small) %>" />
+            <img class="avatar" alt="" src="< comment.user.user_profile.avatar.url(:small) >" />
             <div class="message">
               <span class="arrow"></span>
-              <a href="#" class="name"><%= comment.user.user_profile.first_name %></a>
-              <span class="datetime">at <%= comment.date_created %></span>
+              <a href="#" class="name">< comment.user.user_profile.first_name ></a>
+              <span class="datetime">at < comment.date_created ></span>
               <span class="body">
-                <%= comment.note %>
+                < comment.note >
               </span>
             </div>
           </li>
-        <% end %>
+        < end >
       </ul>
     </div>
-    <%= form_for(@new_comment) do |f| %>
       <div class="chat-form">
         <div class="input-cont">
-          <%= f.text_field :note, :class => 'm-wrap', :placeholder => 'Type a comment here...' %>
+          < text_field_tag :note, :class => 'm-wrap', :placeholder => 'Type a comment here...' >
         </div>
         <div class="btn-cont"> 
           <span class="arrow"></span>
-          <%= button_tag :type=>"submit", :class=>"btn blue icn-only" do content_tag(raw('<i class="icon-ok icon-white"></i>')) end %>
+          < button_to raw('<i class="icon-ok icon-white"></i>'), "javascript:createComment()" >
         </div>
       </div>
-    <% end %>
   </div>
-</div>
+</div -->
 
 <%= link_to 'Edit', edit_publication_path(@publication) %> |
 <%= link_to 'Back', publications_path %>

@@ -38,6 +38,7 @@ Pixms::Application.routes.draw do
     resources :user_profiles
 
     resources :dashboards
+    resources :publication_comments
 
     resources :users
 
