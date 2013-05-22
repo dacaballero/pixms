@@ -4,7 +4,7 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>The publication: <%= @publication.code %> on <%= @publication.publication_status.name %>was Approved by <%= @approval.user.email%></h1>
+    <h1>The publication: <%= @publication.code %> on <%= @publication.publication_status.name %>was Approved by <%= @approval.user.user_profile.first_name %></h1>
     <table>
       <tr>
         <td colspan="2"><%= @publication.code + " - " + @publication.name %></td>

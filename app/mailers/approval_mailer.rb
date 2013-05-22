@@ -9,7 +9,7 @@ class ApprovalMailer < ActionMailer::Base
 
 	def email_reject_approval(publication, approval)
 		@publication = publication
-		@approval = approval
+		@approval = Approval.find(approval.id, :include => [{:user => :user_profile}, :publication])
 		@designer = User.find(@publication.designer_user_id)
 		@creator = User.find(@publication.creator_user_id)
 
@@ -20,6 +20,7 @@ class ApprovalMailer < ActionMailer::Base
 
 	def email_approval_creator(publication, approval)
 		@publication = publication
+		@approval = Approval.find(approval.id, :include => [{:user => :user_profile}, :publication])
 		@designer = User.find(@publication.designer_user_id)
 		@creator = User.find(@publication.creator_user_id)
 
