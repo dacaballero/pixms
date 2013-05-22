@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def check_client
 
   		if not current_user.nil? and current_user.user_profile.user_profile_clients.count == 1
-  			session[:client_id] = current_user.user_profile.user_profile_clients.first.id
+  			session[:client_id] = current_user.user_profile.user_profile_clients.first.client_id
   		end
   	
   end
