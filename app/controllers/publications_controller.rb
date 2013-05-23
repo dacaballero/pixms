@@ -14,7 +14,7 @@ class PublicationsController < ApplicationController
   # GET /campaign_publications/1
   # GET /campaign_publications/1.json
   def show
-    @publication = Publication.find(params[:id])
+    @publication = Publication.find(params[:id], :include => [{:approvals => {:user => :user_profile}}])
     @new_comment = Comment.new
 
     respond_to do |format|

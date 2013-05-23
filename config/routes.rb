@@ -42,7 +42,7 @@ Pixms::Application.routes.draw do
 
     resources :users
 
-    root :to => 'static_pages#home'
+    root :to => 'dashboards#index'
 
     match ':controller/:action'
     match ':controller/:action/:user_id'
