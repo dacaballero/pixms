@@ -34,7 +34,6 @@
                       <span class="after"></span>                                 
                     </li>
                     <li class=""><a data-toggle="tab" href="#tab_2-2"><i class="icon-picture"></i> Change Avatar</a></li>
-                    <li class=""><a data-toggle="tab" href="#tab_3-3"><i class="icon-lock"></i> Change Password</a></li>
                     <li class=""><a data-toggle="tab" href="#tab_4-4"><i class="icon-eye-open"></i> Client Assignment</a></li>
                     <li class=""><a data-toggle="tab" href="#tab_5-5"><i class="icon-eye-open"></i> Customer Assignment</a></li>
                     <li class=""><a data-toggle="tab" href="#tab_6-6"><i class="icon-eye-open"></i> Campaign Assignment</a></li>
@@ -110,21 +109,6 @@
                             <span>The image is preferred on a 310x310px size.</span>
                           </div>
                           <div class="space10"></div>
-                          <div class="submit-btn">
-                            <%= f.button :type=>"submit", :class=>"btn green" %>
-                          </div>
-                        <% end %>
-                      </div>
-                    </div>
-                    <div id="tab_3-3" class="tab-pane">
-                      <div style="height: auto;" id="accordion3-3" class="accordion collapse">
-                        <%= form_for(@user, :url => { :action => "update_password", :user_id => @user.id } ) do |f| %>
-                          <%= f.label :current_password, :class=>'control-label' %>
-                          <%= f.password_field :current_password, :autocomplete => "off", :class => "m-wrap span8" %>
-                          <%= f.label :password, "Password", :class=>'control-label' %>
-                          <%= f.password_field :password, :autocomplete => "off", :class => "m-wrap span8"  %>
-                          <%= f.label :password_confirmation, :class=>'control-label' %>
-                          <%= f.password_field :password_confirmation, :autocomplete => "off", :class => "m-wrap span8" %>
                           <div class="submit-btn">
                             <%= f.button :type=>"submit", :class=>"btn green" %>
                           </div>

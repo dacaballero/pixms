@@ -158,6 +158,7 @@
 							</li>
 							<li><a href="calendar.html"><i class="icon-calendar"></i> My Calendar</a></li>
 							<li><a href="#"><i class="icon-tasks"></i> My Tasks</a></li>
+							<li><%= link_to "Change password", edit_user_registration_path %></li>
 							<li class="divider"></li>
 							<li><%= link_to(raw('<i class="icon-key"></i> Log Out'), destroy_user_session_path, :method => :delete) %></li>
 						</ul>
