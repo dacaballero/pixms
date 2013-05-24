@@ -1,7 +1,7 @@
 class Publication < ActiveRecord::Base
   attr_accessible :code, :current_approver, :date_final_approved, :description, :name, :pub_bio, :pub_date, :pub_image, :pub_title, :publication_status_id, :publication_type_id, :version, :approval_process_id, :campaign_id, :creator_user_id, :designer_user_id
 
-  has_attached_file :pub_image, :styles => {:thumbnail => "86x35#", :small  => "172x70>", :medium => "258x105>"}
+  has_attached_file :pub_image, :styles => {:thumbnail => "80x60#", :small  => "250x185>", :medium => "400x300>", :large => "600x450>"}
   
   belongs_to :publication_type
   belongs_to :publication_status
