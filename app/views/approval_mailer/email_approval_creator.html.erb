@@ -11,7 +11,7 @@
       </tr>
       <tr>
         <td style="width: 50%">
-          <%= image_tag @publication.pub_image.url() %>
+          <%= image_tag "http://pixms.pixelabapps.com" + @publication.pub_image.url() %>
         </td>
         <td>
           <table>
@@ -27,7 +27,11 @@
         </td>
       </tr>
       <tr>
-        <td><%= link_to('Publication', publications_path(@publication, :only_path => false)) %></td>
+        <td>
+          <a href='<%= "http://pixms.pixelabapps.com/publications/" + @publication.id.to_s %>'>
+            Open Publication
+          </a>
+        </td>
       </tr>
     </table>
 
